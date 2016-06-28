@@ -4,7 +4,7 @@ Free version with limited functionality
 Contact jay50@pitt.edu for further licensing information
 <br>
 <br>
-Enzyme list obtained by courtesy of New England Biolabs <https://www.neb.com/>
+List of NEB enzymes by courtesy of New England Biolabs <https://www.neb.com/>
 <hr>
 <br>
 # Full version implementations
