@@ -25,5 +25,5 @@ Please contact jay50@pitt.edu for further licensing information
       
       Jaewan Yun
       Undergraduate Student
-      Molecular Biology
+      Molecular Biology, Chemistry, Computer Science
       University of Pittsburgh
