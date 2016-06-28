@@ -9,13 +9,9 @@ List of NEB enzymes by courtesy of New England Biolabs <https://www.neb.com/>
 <br>
 # Full version implementations
       Completely automated plasmid planning - Order solutions by preference
-      <br>
       BLAST
-      <br>
       ORF finding
-      <br>
       Customization (i.e. Sync enzymes in inventory, show BLAST results in visual panel, etc.)
-      <br>
       And more...
 <hr>
 <br>
@@ -27,18 +23,12 @@ List of NEB enzymes by courtesy of New England Biolabs <https://www.neb.com/>
 <br>
 # Brought to you by
       Narasimhan Jayanth Venkatachari
-      <br>
       M.D. Ph.D.
-      <br>
       Infectious Diseases and Microbiology
-      <br>
       University of Pittsburgh
-      <br>
-      <br>
+      
+      
       Jaewan Yun
-      <br>
       Undergraduate Student
-      <br>
       Molecular Biology
-      <br>
       University of Pittsburgh
