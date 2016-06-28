@@ -1,0 +1,306 @@
+AatII	 recombinant timesaver 5min cpg	GACGT/C	CutSmart® Buffer	10	50*	50	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked	? DNA
+AbaSI	 recombinant		CutSmart® Buffer	25	50	50	100	65°C	25°C	C 	Not Sensitive	Not Sensitive	Not Sensitive	T4 wild-type phage DNA (fully ghmC-modified)	e
+Acc65I	 recombinant timesaver 5min dcm cpg	G/GTACC	NEBuffer 3.1	10	75*	100	25	65°C	37°C	A 	Not Sensitive	Blocked by Some Combinations of Overlapping	Blocked by Some Combinations of Overlapping	pBC4 DNA
+AccI	 recombinant timesaver 5min cpg	GT/MKAC	CutSmart® Buffer	50	50	10	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Overlapping	? DNA
+AciI	 recombinant timesaver 5min cpg	CCGC(-3/-1)	CutSmart® Buffer	10	25	100	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA
+AclI	 recombinant timesaver 5min cpg	AA/CGTT	CutSmart® Buffer	10	10	10	100	No	37°C	B 	Not Sensitive	Not Sensitive	Blocked	? DNA
+AcuI	 recombinant timesaver 5min	CTGAAG(16/14)	CutSmart® Buffer + SAM	50	100	50	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	1, b, d
+AfeI	 recombinant cpg	AGC/GCT	CutSmart® Buffer	25	100	25	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked	pXba DNA
+AflII	 recombinant timesaver 5min	C/TTAAG	CutSmart® Buffer	50	100	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	FX174 RF I DNA
+AflIII	 recombinant	A/CRYGT	NEBuffer 3.1	10	50	100	50	80°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+AgeI (1) (2)	 recombinant cpg	A/CCGGT	NEBuffer 1.1	100	75	25	75	65°C	37°C	C 	Not Sensitive	Not Sensitive	Blocked	? DNA
+AgeI-HF® (2)	 recombinant timesaver 5min engineered cpg	A/CCGGT	CutSmart® Buffer	100	50	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA
+AgeI-HF® RE-Mix®	 recombinant timesaver 5min engineered re-mix icon cpg	A/CCGGT	-	-	-	-	-	65°C	37°C	-	Not Sensitive	Not Sensitive	Blocked
+AhdI	 recombinant timesaver 5min cpg	GACNNN/NNGTC	CutSmart® Buffer	25	25	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Impaired by Some Combinations of Overlapping	? DNA	a
+AleI	 recombinant cpg	CACNN/NNGTG	CutSmart® Buffer	10	10	10	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Impaired by Some Combinations of Overlapping	? DNA
+AluI	 recombinant timesaver 5min	AG/CT	CutSmart® Buffer	25	100	50	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	b
+AlwI	 recombinant dam	GGATC(4/5)	CutSmart® Buffer	50	50	10	100	No	37°C	A 	Blocked	Not Sensitive	Not Sensitive	? DNA (dam-)	1, b, d
+AlwNI	 recombinant timesaver 5min dcm	CAGNNN/CTG	CutSmart® Buffer	10	100	50	100	80°C	37°C	A 	Not Sensitive	Blocked by Overlapping	Not Sensitive	? DNA
+ApaI	 recombinant timesaver 5min dcm cpg	GGGCC/C	CutSmart® Buffer	25	25	10	100	65°C	25°C	A 	Not Sensitive	Blocked by Overlapping	Blocked by Overlapping	pXba DNA
+ApaLI	 recombinant timesaver 5min cpg	G/TGCAC	CutSmart® Buffer	100	100	10	100	No	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Overlapping	? DNA (HindIII digest)
+ApeKI	 recombinant timesaver 5min cpg	G/CWGC	NEBuffer 3.1	25	50	100	10	No	75°C	B 	Not Sensitive	Not Sensitive		? DNA
+ApoI (1)	 recombinant timesaver 5min	R/AATTY	NEBuffer 3.1	10	75	100	75	80°C	50°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+ApoI-HF	 recombinant timesaver 5min engineered	R/AATTY	CutSmart® Buffer	10	100	10	100	80°C	37°C	B 			Not Sensitive
+AscI (2)	 recombinant timesaver 5min cpg	GG/CGCGCC	CutSmart® Buffer	10	10	10	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA
+AscI RE-Mix®	 recombinant timesaver 5min re-mix icon cpg	GG/CGCGCC	-	-	-	-	-	65°C	37°C	-	Not Sensitive	Not Sensitive	Blocked
+AseI	 recombinant timesaver 5min	AT/TAAT	NEBuffer 3.1	10	50*	100	10	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	3
+AsiSI	 recombinant cpg	GCGAT/CGC	CutSmart® Buffer	50	100	100	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked	XhoI digested pXba	2, b
+AvaI	 recombinant timesaver 5min cpg	C/YCGRG	CutSmart® Buffer	10	100	25	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA
+AvaII	 recombinant timesaver 5min dcm cpg	G/GWCC	CutSmart® Buffer	50	75	10	100	80°C	37°C	A 	Not Sensitive	Blocked by Overlapping	Blocked by Overlapping	? DNA
+AvrII	 recombinant timesaver 5min	C/CTAGG	CutSmart® Buffer	100	50	50	100	No	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA (HindIII digest)
+BaeGI	 recombinant timesaver 5min	GKGCM/C	NEBuffer 3.1	75	75	100	25	80°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BaeI	 recombinant timesaver 5min cpg	(10/15)ACNNNNGTAYC(12/7)	CutSmart® Buffer + SAM	50	100	50	100	65°C	25°C	A 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	pXba DNA	e
+BamHI (1)	 recombinant timesaver 5min	G/GATCC	NEBuffer 3.1	75*	100*	100	100*	No	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	3
+BamHI-HF®	 recombinant timesaver 5min engineered	G/GATCC	CutSmart® Buffer	100	50	10	100	No	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BanI	 recombinant dcm cpg	G/GYRCC	CutSmart® Buffer	10	25	10	100	65°C	37°C	A 	Not Sensitive	Blocked by Some Combinations of Overlapping	Blocked by Some Combinations of Overlapping	? DNA	1
+BanII	 recombinant	GRGCY/C	CutSmart® Buffer	100	100	50	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	2
+BbsI	 recombinant timesaver 5min	GAAGAC(2/6)	NEBuffer 2.1	100	100	25	75	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BbvCI	 recombinant cpg	CCTCAGC(-5/-2)	CutSmart® Buffer	10	100	50	100	No	37°C	B 	Not Sensitive	Not Sensitive	Impaired by Overlapping 	? DNA	1, a
+BbvI	 recombinant timesaver 5min	GCAGC(8/12)	CutSmart® Buffer	100	100	25	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	pBR322 (dcm+) DNA	3
+BccI	 recombinant	CCATC(4/5)	CutSmart® Buffer	100	50	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	pXba DNA	3, b
+BceAI	 recombinant cpg	ACGGC(12/14)	NEBuffer 3.1	100*	100*	100	100*	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	pBR322 (dcm+) DNA	1
+BcgI	 recombinant dam cpg	(10/12)CGANNNNNNTGC(12/10)	NEBuffer 3.1 + SAM	10	75*	100	50*	65°C	37°C	A 	Impaired by Overlapping 	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA	e
+BciVI	 recombinant timesaver 5min	GTATCC(6/5)	CutSmart® Buffer	100	25	10	100	80°C	37°C	C 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	b
+BclI	 recombinant timesaver 5min dam	T/GATCA	NEBuffer 3.1	50	100	100	75	No	50°C	A 	Blocked	Not Sensitive	Not Sensitive	? DNA (dam-)
+BcoDI	 recombinant timesaver 5min cpg	GTCTC(1/5)	CutSmart® Buffer	50	75	75	100	No	37°C	B 	Not Sensitive	Not Sensitive	Impaired by Some Combinations of Overlapping	? DNA
+BfaI	 recombinant	C/TAG	CutSmart® Buffer	10	10	10	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	2, b
+BfuAI	 recombinant timesaver 5min cpg	ACCTGC(4/8)	NEBuffer 3.1	10	25	100	10	65°C	50°C	B 	Not Sensitive	Not Sensitive	Impaired by Overlapping 	? DNA	3
+BfuCI	 recombinant timesaver 5min cpg	/GATC	CutSmart® Buffer	100	50	25	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked by Overlapping	? DNA
+BglI	 recombinant timesaver 5min cpg	GCCNNNN/NGGC	NEBuffer 3.1	10	25	100	10	65°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA
+BglII	 recombinant timesaver 5min	A/GATCT	NEBuffer 3.1	10	10	100	10	No	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BlpI	 recombinant timesaver 5min	GC/TNAGC	CutSmart® Buffer	50	100	10	100	No	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	d
+BmgBI	 recombinant timesaver 5min cpg	CACGTC(-3/-3)	NEBuffer 3.1	10	10	100	10	65°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked	? DNA	3, b, d
+BmrI	 recombinant	ACTGGG(5/4)	NEBuffer 2.1	75	100	75	100*	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA (HindIII digest)	b
+BmtI (1)	 recombinant	GCTAG/C	NEBuffer 3.1	100	100	100	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	pXba DNA	2
+BmtI-HF®	 recombinant timesaver 5min engineered	GCTAG/C	CutSmart® Buffer	50	100	10	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	pXba DNA
+BpmI	 recombinant	CTGGAG(16/14)	NEBuffer 3.1	75	100	100	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	2
+Bpu10I	 recombinant	CCTNAGC(-5/-2)	NEBuffer 3.1	10	25	100	25	80°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	3, b, d
+BpuEI	 recombinant timesaver 5min	CTTGAG(16/14)	CutSmart® Buffer + SAM	50*	100	50*	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	d
+BsaAI	 recombinant timesaver 5min cpg	YAC/GTR	CutSmart® Buffer	100	100	100	100	No	37°C	C 	Not Sensitive	Not Sensitive	Blocked	? DNA
+BsaBI	 dam cpg	GATNN/NNATC	CutSmart® Buffer	50	100	75	100	80°C	60°C	B 	Blocked by Overlapping	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA (dam-)	2
+BsaHI	 recombinant timesaver 5min dcm cpg	GR/CGYC	CutSmart® Buffer	50	100	100	100	80°C	37°C	A 	Not Sensitive	Blocked by Some Combinations of Overlapping	Blocked	? DNA
+BsaI (1)	 recombinant dcm cpg	GGTCTC(1/5)	CutSmart® Buffer	75*	75	100	100	65°C	37°C	B 	Not Sensitive	Impaired by Some Combinations of Overlapping	Blocked by Some Combinations of Overlapping	pXba DNA	3
+BsaI-HF®	 recombinant timesaver 5min engineered dcm cpg	GGTCTC(1/5)	CutSmart® Buffer	50	100	25	100	65°C	37°C	B 	Not Sensitive	Blocked by Overlapping	Blocked by Some Combinations of Overlapping	pXba DNA
+BsaJI	 recombinant	C/CNNGG	CutSmart® Buffer	50	100	100	100	80°C	60°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BsaWI	 recombinant timesaver 5min	W/CCGGW	CutSmart® Buffer	10	100	50	100	80°C	60°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BsaXI	 timesaver 5min	(9/12)ACNNNNNCTCC(10/7)	CutSmart® Buffer	50*	100*	10	100	No	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	e
+BseRI	 recombinant timesaver 5min	GAGGAG(10/8)	CutSmart® Buffer	100*	100	75	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	d
+BseYI	 recombinant cpg	CCCAGC(-5/-1)	NEBuffer 3.1	10	50	100	50	80°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked by Overlapping	? DNA	d
+BsgI	 recombinant timesaver 5min	GTGCAG(16/14)	CutSmart® Buffer + SAM	25	50	25	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	d
+BsiEI	 recombinant timesaver 5min cpg	CGRY/CG	CutSmart® Buffer	25	50	10	100	No	60°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA
+BsiHKAI	 recombinant	GWGCW/C	CutSmart® Buffer	25	100	100	100	No	65°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BsiWI	 recombinant timesaver 5min cpg	C/GTACG	NEBuffer 3.1	25	50*	100	25	65°C	55°C	B 	Not Sensitive	Not Sensitive	Blocked	FX174 DNA
+BslI	 recombinant timesaver 5min dcm cpg	CCNNNNN/NNGG	CutSmart® Buffer	50	75	100	100	No	55°C	A 	Not Sensitive	Blocked by Some Combinations of Overlapping	Blocked by Some Combinations of Overlapping	? DNA	b
+BsmAI	 recombinant timesaver 5min cpg	GTCTC(1/5)	CutSmart® Buffer	50	100	100	100	No	55°C	B 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA
+BsmBI	 recombinant timesaver 5min cpg	CGTCTC(1/5)	NEBuffer 3.1	10	50*	100	25	80°C	55°C	B 	Not Sensitive	Not Sensitive	Blocked	? DNA
+BsmFI	 recombinant dcm cpg	GGGAC(10/14)	CutSmart® Buffer	25	50	50	100	80°C	65°C	A 	Not Sensitive	Blocked by Overlapping	Blocked by Overlapping	pBR322 (dcm+) DNA	1
+BsmI	 recombinant timesaver 5min	GAATGC(1/-1)	CutSmart® Buffer	25	100	10	100	80°C	65°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BsoBI	 recombinant timesaver 5min	C/YCGRG	CutSmart® Buffer	25	100	100	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+Bsp1286I	 recombinant timesaver 5min	GDGCH/C	CutSmart® Buffer	25	25	25	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	3
+BspCNI	 recombinant timesaver 5min	CTCAG(9/7)	CutSmart® Buffer + SAM	100	75	10	100	80°C	25°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	b
+BspDI	 recombinant dam cpg	AT/CGAT	CutSmart® Buffer	25	75	50	100	80°C	37°C	A 	Blocked by Overlapping	Not Sensitive	Blocked	? DNA
+BspEI	 recombinant timesaver 5min dam cpg	T/CCGGA	NEBuffer 3.1	10	10	100	10	80°C	37°C	B 	Blocked by Overlapping	Not Sensitive	Impaired	? DNA (dam-)
+BspHI	 recombinant timesaver 5min dam	T/CATGA	CutSmart® Buffer	10	50	25	100	80°C	37°C	A 	Impaired by Overlapping 	Not Sensitive	Not Sensitive	? DNA
+BspMI	 recombinant	ACCTGC(4/8)	NEBuffer 3.1	10	50*	100	10	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BspQI	 recombinant timesaver 5min	GCTCTTC(1/4)	NEBuffer 3.1	100	100	100	100	80°C	50°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	3
+BsrBI	 recombinant timesaver 5min cpg	CCGCTC(-3/-3)	CutSmart® Buffer	50	100	100	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA	d
+BsrDI	 recombinant timesaver 5min	GCAATG(2/0)	NEBuffer 2.1	10	100	75	25	80°C	65°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	3, d
+BsrFI	 recombinant cpg	R/CCGGY	CutSmart® Buffer	10	100*	100*	100	No	37°C	C 	Not Sensitive	Not Sensitive	Blocked	pBR322 (dcm+) DNA	1
+BsrGI (1)	 recombinant timesaver 5min	T/GTACA	NEBuffer 2.1	25	100	100	25	80°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BsrGI-HF®	 recombinant timesaver 5min engineered	T/GTACA	CutSmart® Buffer	10	100	100	100	80°C	37°C	A 				? DNA
+BsrI	 timesaver 5min	ACTGG(1/-1)	NEBuffer 3.1	10	50	100	10	80°C	65°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	FX174 RF I DNA	b
+BssHII	 recombinant timesaver 5min cpg	G/CGCGC	CutSmart® Buffer	100	100	100	100	65°C	50°C	B 	Not Sensitive	Not Sensitive	Blocked	? DNA
+BssKI	 recombinant timesaver 5min dcm cpg	/CCNGG	CutSmart® Buffer	50	100	100	100	80°C	60°C	A 	Not Sensitive	Blocked by Overlapping	Blocked by Overlapping	? DNA	b
+BssSaI	 recombinant timesaver 5min engineered	CACGAG(-5/-1)	CutSmart® Buffer	10	25	10	100	No	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BssSI	 recombinant	CACGAG(-5/-1)	NEBuffer 3.1	50	100	100	50	80°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BstAPI	 recombinant cpg	GCANNNN/NTGC	CutSmart® Buffer	50	100	25	100	80°C	60°C	A 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA	b
+BstBI	 recombinant timesaver 5min cpg	TT/CGAA	CutSmart® Buffer	75	100	10	100	No	65°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA
+BstEII  (1) (2)	 recombinant timesaver 5min	G/GTNACC	NEBuffer 3.1	10	75*	100	75*	No	60°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	3
+BstEII-HF®	 recombinant timesaver 5min engineered	G/GTNACC	CutSmart® Buffer	10	10	10	100	No	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BstEII-HF® RE-Mix®	 recombinant timesaver 5min engineered re-mix icon	G/GTNACC	-	-	-	-	-	No	37°C	-	Not Sensitive	Not Sensitive	Not Sensitive
+BstNI	 recombinant timesaver 5min	CC/WGG	NEBuffer 3.1	10	100	100	75	No	60°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	a
+BstUI	 timesaver 5min cpg	CG/CG	CutSmart® Buffer	50	100	25	100	No	60°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA	b
+BstXI	 recombinant timesaver 5min dcm	CCANNNNN/NTGG	NEBuffer 3.1	10	50	100	25	80°C	37°C	B 	Not Sensitive	Blocked by Some Combinations of Overlapping	Not Sensitive	? DNA	3
+BstYI	 recombinant timesaver 5min	R/GATCY	NEBuffer 2.1	25	100	75	100	No	60°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BstZ17I	 recombinant timesaver 5min cpg	GTA/TAC	CutSmart® Buffer	75	100	100	100	No	37°C	B 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA	3, b
+Bsu36I	 recombinant timesaver 5min	CC/TNAGG	CutSmart® Buffer	25	100	100	100	80°C	37°C	C 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA (HindIII digest)	b
+BtgI	 recombinant timesaver 5min	C/CRYGG	CutSmart® Buffer	50	100	100	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	pBR322 (dcm+) DNA
+BtgZI	 recombinant cpg	GCGATG(10/14)	CutSmart® Buffer	10	25	10	100	80°C	60°C	A 	Not Sensitive	Not Sensitive	Impaired	? DNA	3, b, d
+BtsaI	 recombinant timesaver 5min engineered	GCAGTG(2/0)	CutSmart® Buffer	100	100	25	100	No	55°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BtsCI	 recombinant timesaver 5min	GGATG(2/0)	CutSmart® Buffer	10	100	25	100	80°C	50°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+BtsI	 recombinant	GCAGTG(2/0)	CutSmart® Buffer	100	50	50	100	80°C	55°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	1, b
+BtsIMutI	 recombinant engineered	CAGTG(2/0)	CutSmart® Buffer	100	50	10	100	80°C	55°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	pUC19 DNA	b
+Cac8I	 timesaver 5min cpg	GCN/NGC	CutSmart® Buffer	50	75	100	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA	b
+ClaI	 recombinant timesaver 5min dam cpg	AT/CGAT	CutSmart® Buffer	10	50	50	100	65°C	37°C	A 	Blocked by Overlapping	Not Sensitive	Blocked	? DNA (dam-)
+CspCI	 recombinant timesaver 5min	(11/13)CAANNNNNGTGG(12/10)	CutSmart® Buffer + SAM	10	100	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	e
+CviAII	 recombinant timesaver 5min	C/ATG	CutSmart® Buffer	50	50	10	100	65°C	25°C	C 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+CviKI-1	 recombinant	RG/CY	CutSmart® Buffer	25	100	100	100	No	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	pBR322 (dcm+) DNA	1, b
+CviQI	 recombinant timesaver 5min	G/TAC	NEBuffer 3.1	75	100*	100	75*	No	25°C	C 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	b
+DdeI	 recombinant timesaver 5min	C/TNAG	CutSmart® Buffer	75	100	100	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+DpnI	 recombinant timesaver 5min cpg	GA/TC	CutSmart® Buffer	100	100	75	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked by Overlapping	pBR322 DNA (dam methylated)	b
+DpnII	 recombinant timesaver 5min dam	/GATC	NEBuffer DpnII	25	25	100*	25	65°C	37°C	B 	Blocked	Not Sensitive	Not Sensitive	? DNA (dam-)
+DraI	 recombinant timesaver 5min	TTT/AAA	CutSmart® Buffer	75	75	50	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+DraIII (1)	 recombinant cpg	CACNNN/GTG	NEBuffer 3 + BSA	25	50	100	25	65°C	37°C	B 	Not Sensitive	Not Sensitive	Impaired by Overlapping 	? DNA
+DraIII-HF®	 recombinant timesaver 5min engineered cpg	CACNNN/GTG	CutSmart® Buffer	10	50	10	100	No	37°C	B 	Not Sensitive	Not Sensitive	Impaired by Overlapping 	? DNA	b
+DrdI	 timesaver 5min cpg	GACNNNN/NNGTC	CutSmart® Buffer	25	50	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	pUC19 DNA	3
+EaeI	 recombinant dcm cpg	Y/GGCCR	CutSmart® Buffer	10	50	10	100	65°C	37°C	A 	Not Sensitive	Blocked by Overlapping	Blocked by Overlapping	? DNA	b
+EagI (1)	 recombinant timesaver 5min cpg	C/GGCCG	NEBuffer 3.1	10	25	100	10	65°C	37°C	C 	Not Sensitive	Not Sensitive	Blocked	pXba DNA
+EagI-HF®	 recombinant timesaver 5min engineered cpg	C/GGCCG	CutSmart® Buffer	25	100	100	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked	pXba DNA
+EarI	 recombinant timesaver 5min cpg	CTCTTC(1/4)	CutSmart® Buffer	50	10	10	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Impaired by Overlapping 	? DNA	b, d
+EciI	 recombinant cpg	GGCGGA(11/9)	CutSmart® Buffer	100	50	50	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA	2
+Eco53kI	 recombinant timesaver 5min cpg	GAG/CTC	CutSmart® Buffer	100	100	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	pXba DNA	3, b
+EcoNI	 recombinant timesaver 5min	CCTNN/NNNAGG	CutSmart® Buffer	50	100	75	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	b
+EcoO109I	 recombinant timesaver 5min dcm	RG/GNCCY	CutSmart® Buffer	50	100	50	100	65°C	37°C	A 	Not Sensitive	Blocked by Overlapping	Not Sensitive	? DNA (HindIII digest)	3
+EcoP15I	 recombinant timesaver 5min	CAGCAG(25/27)	NEBuffer 3.1 + ATP	75	100	100	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	pUC19 DNA	e
+EcoRI (1) (2)	 recombinant timesaver 5min cpg	G/AATTC	NEBuffer EcoRI	25	100*	50	50*	65°C	37°C	C 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA
+EcoRI-HF® (2)	 recombinant timesaver 5min engineered cpg	G/AATTC	CutSmart® Buffer	10	100	10	100	65°C	37°C	C 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA
+EcoRI-HF® RE-Mix®	 recombinant timesaver 5min engineered re-mix icon cpg	G/AATTC	-	-	-	-	-	65°C	37°C	-	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping
+EcoRV (1) (2)	 recombinant timesaver 5min cpg	GAT/ATC	NEBuffer 3.1	10	50	100	10	80°C	37°C	A 	Not Sensitive	Not Sensitive	Impaired by Some Combinations of Overlapping	? DNA
+EcoRV-HF® (2)	 recombinant timesaver 5min engineered cpg	GAT/ATC	CutSmart® Buffer	25	100	100	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Impaired by Some Combinations of Overlapping	? DNA
+EcoRV-HF® RE-Mix®	 recombinant timesaver 5min engineered re-mix icon cpg	GAT/ATC	-	-	-	-	-	65°C	37°C	-	Not Sensitive	Not Sensitive	Impaired by Some Combinations of Overlapping
+FatI	 recombinant	/CATG	NEBuffer 2.1	10	100	50	50	80°C	55°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	pUC19 DNA
+FauI	 recombinant cpg	CCCGC(4/6)	CutSmart® Buffer	100	50	10	100	65°C	55°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA	3, b, d
+Fnu4HI	 recombinant timesaver 5min cpg	GC/NGC	CutSmart® Buffer	10	10	10	100	No	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Overlapping	? DNA	a
+FokI	 recombinant dcm cpg	GGATG(9/13)	CutSmart® Buffer	100	100	75	100	65°C	37°C	A 	Not Sensitive	Impaired by Overlapping 	Impaired by Overlapping 	? DNA	3, b, d
+FseI	 recombinant timesaver 5min dcm cpg	GGCCGG/CC	CutSmart® Buffer	100	75	10	100	65°C	37°C	B 	Not Sensitive	Impaired by Some Combinations of Overlapping	Blocked	Adenovirus-2 DNA
+FspEI	 recombinant	CC(12/16)	CutSmart® Buffer	10	10	10	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	pBR322 (dcm+) DNA	2, e
+FspI	 recombinant timesaver 5min cpg	TGC/GCA	CutSmart® Buffer	10	100	10	100	No	37°C	C 	Not Sensitive	Not Sensitive	Blocked	? DNA	b
+HaeII	 recombinant timesaver 5min cpg	RGCGC/Y	CutSmart® Buffer	25	100	10	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA
+HaeIII	 recombinant timesaver 5min	GG/CC	CutSmart® Buffer	50	100	25	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+HgaI	 recombinant cpg	GACGC(5/10)	NEBuffer 1.1	100	100	25	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	FX174 DNA	1
+HhaI	 recombinant timesaver 5min cpg	GCG/C	CutSmart® Buffer	25	100	100	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA
+HincII	 recombinant timesaver 5min cpg	GTY/RAC	NEBuffer 3.1	25	100	100	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA
+HindIII (1)	 recombinant	A/AGCTT	NEBuffer 2.1	25	100	50	50	80°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	2
+HindIII-HF®	 recombinant timesaver 5min engineered	A/AGCTT	CutSmart® Buffer	10	100	10	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+HinfI	 recombinant timesaver 5min cpg	G/ANTC	CutSmart® Buffer	50	100	100	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA
+HinP1I	 recombinant timesaver 5min cpg	G/CGC	CutSmart® Buffer	100	100	100	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA
+HpaI	 recombinant cpg	GTT/AAC	CutSmart® Buffer	10	75*	25	100	No	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA	1
+HpaII	 recombinant timesaver 5min cpg	C/CGG	CutSmart® Buffer	100	50	10	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA
+HphI	 recombinant timesaver 5min dam dcm	GGTGA(8/7)	CutSmart® Buffer	50	50	10	100	65°C	37°C	B 	Blocked	Blocked	Not Sensitive	? DNA	b, d
+Hpy166II	 recombinant timesaver 5min cpg	GTN/NAC	CutSmart® Buffer	100	100	50	100	65°C	37°C	C 	Not Sensitive	Not Sensitive	Blocked by Overlapping	pBR322 DNA
+Hpy188I	 recombinant dam	TCN/GA	CutSmart® Buffer	25	100	50	100	65°C	37°C	A 	Blocked by Some Combinations of Overlapping	Not Sensitive	Not Sensitive	pBR322 (dcm+) DNA	1, b
+Hpy188III	 recombinant dam cpg	TC/NNGA	CutSmart® Buffer	100	100	10	100	65°C	37°C	B 	Blocked by Overlapping	Not Sensitive	Blocked by Overlapping	pUC19 DNA	3, b
+Hpy99I	 recombinant cpg	CGWCG/	CutSmart® Buffer	50	10	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA
+HpyAV	 recombinant timesaver 5min cpg	CCTTC(6/5)	CutSmart® Buffer	100	100	25	100	65°C	37°C		Not Sensitive	Not Sensitive	Impaired by Overlapping 	? DNA	3, b, d
+HpyCH4III	 recombinant	ACN/GT	CutSmart® Buffer	100	25	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	b
+HpyCH4IV	 recombinant timesaver 5min cpg	A/CGT	CutSmart® Buffer	100	50	25	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	pUC19 DNA
+HpyCH4V	 recombinant timesaver 5min	TG/CA	CutSmart® Buffer	50	50	25	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+I-CeuI	 recombinant	TAACTATAACGGTCCTAAGGTAGCGAA(-9/-13)	CutSmart® Buffer	10	10	10	100	65°C	37°C	B 				pBHS ScaI-linearized Control Plasmid
+I-SceI	 recombinant	TAGGGATAACAGGGTAAT(-9/-13)	CutSmart® Buffer	10	50	25	100	65°C	37°C	B 				pGPS2 NotI-linearized Control Plasmid
+KasI	 recombinant cpg	G/GCGCC	CutSmart® Buffer	50	100	50	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked	pBR322 DNA	3
+KpnI (1) (2)	 recombinant	GGTAC/C	NEBuffer 1.1	100	75	10	50*	No	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	pXba DNA	1
+KpnI-HF® (2)	 recombinant timesaver 5min engineered	GGTAC/C	CutSmart® Buffer	100	25	10	100	No	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	pXba DNA
+KpnI-HF® RE-Mix®	 recombinant timesaver 5min engineered re-mix icon	GGTAC/C	-	-	-	-	-	No	37°C	-	Not Sensitive	Not Sensitive	Not Sensitive
+LpnPI	 recombinant	CCDG(10/14)	CutSmart® Buffer	10	10	10	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	pBR322 (dcm+) DNA	2, e
+MboI	 recombinant timesaver 5min dam cpg	/GATC	CutSmart® Buffer	75	100	100	100	65°C	37°C	A 	Blocked	Not Sensitive	Impaired by Overlapping 	? DNA (dam-)
+MboII	 recombinant dam	GAAGA(8/7)	CutSmart® Buffer	100*	100	50	100	65°C	37°C	C 	Blocked by Overlapping	Not Sensitive	Not Sensitive	? DNA (dam-)	b
+MfeI (1) (2)	 recombinant	C/AATTG	CutSmart® Buffer	75	50	10	100	No	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	2
+MfeI-HF® (2)	 recombinant timesaver 5min engineered	C/AATTG	CutSmart® Buffer	75	25	10	100	No	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+MfeI-HF® RE-Mix®	 recombinant timesaver 5min engineered re-mix icon	C/AATTG	-	-	-	-	-	No	37°C	-	Not Sensitive	Not Sensitive	Not Sensitive
+MluCI	 recombinant timesaver 5min	/AATT	CutSmart® Buffer	100	10	10	100	No	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+MluI (1)	 recombinant timesaver 5min cpg	A/CGCGT	NEBuffer 3.1	10	50	100	25	80°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA
+MluI-HF®	 recombinant timesaver 5min engineered cpg	A/CGCGT	CutSmart® Buffer	25	100	100	100	No	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA
+MlyI	 recombinant timesaver 5min	GAGTC(5/5)	CutSmart® Buffer	50	50	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	b, d
+MmeI	 recombinant timesaver 5min cpg	TCCRAC(20/18)	CutSmart® Buffer + SAM	50	100	50	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked by Overlapping	FX174 DNA	b, c
+MnlI	 recombinant timesaver 5min	CCTC(7/6)	CutSmart® Buffer	75	100	50	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	b
+MscI	 recombinant dcm	TGG/CCA	CutSmart® Buffer	25	100	100	100	80°C	37°C	B 	Not Sensitive	Blocked by Overlapping	Not Sensitive	? DNA
+MseI	 recombinant timesaver 5min	T/TAA	CutSmart® Buffer	75	100	75	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+MslI	 recombinant timesaver 5min	CAYNN/NNRTG	CutSmart® Buffer	50	50	10	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+MspA1I	 recombinant timesaver 5min cpg	CMG/CKG	CutSmart® Buffer	10	50	10	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked by Overlapping	? DNA
+MspI	 recombinant timesaver 5min	C/CGG	CutSmart® Buffer	75	100	50	100	No	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+MspJI	 recombinant	CNNR(9/13)	CutSmart® Buffer	10	10	10	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	pBR322 (dcm+) DNA	2, e
+MwoI	 recombinant timesaver 5min cpg	GCNNNNN/NNGC	CutSmart® Buffer	10	100	100	100	No	60°C	B 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA
+NaeI	 recombinant cpg	GCC/GGC	CutSmart® Buffer	25	25	10	100	No	37°C	A 	Not Sensitive	Not Sensitive	Blocked	pXba DNA	b
+NarI	 recombinant cpg	GG/CGCC	CutSmart® Buffer	100	100	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	pXba DNA
+Nb.BbvCI	 recombinant	CCTCAGC	CutSmart® Buffer	25	100	100	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	supercoiled plasmid DNA	e
+Nb.BsmI	 recombinant	GAATGC	NEBuffer 3.1	10	50	100	10	80°C	65°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	pBR322 DNA	e
+Nb.BsrDI	 recombinant	GCAATG	CutSmart® Buffer	25	100	100	100	80°C	65°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	pUC19 DNA	e
+Nb.BssSI	 recombinant engineered		NEBuffer 3.1	10	100	100	25	No	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive
+Nb.BtsI	 recombinant	GCAGTG	CutSmart® Buffer	75	100	75	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	FX174 DNA	e
+NciI	 recombinant timesaver 5min cpg	CC/SGG	CutSmart® Buffer	100	25	10	100	No	37°C	A 	Not Sensitive	Not Sensitive	Impaired by Overlapping 	? DNA	b
+NcoI (1) (2)	 recombinant timesaver 5min	C/CATGG	NEBuffer 3.1	100	100	100	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+NcoI-HF® (2)	 recombinant timesaver 5min engineered	C/CATGG	CutSmart® Buffer	50	100	10	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+NcoI-HF® RE-Mix®	 recombinant timesaver 5min engineered re-mix icon	C/CATGG	-	-	-	-	-	80°C	37°C	-	Not Sensitive	Not Sensitive	Not Sensitive
+NdeI	 recombinant timesaver 5min	CA/TATG	CutSmart® Buffer	75	100	100	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+NgoMIV	 recombinant timesaver 5min cpg	G/CCGGC	CutSmart® Buffer	100	50	10	100	No	37°C	A 	Not Sensitive	Not Sensitive	Blocked	Adenovirus-2 DNA	1
+NheI (1) (2)	 recombinant timesaver 5min cpg	G/CTAGC	NEBuffer 2.1	100	100	10	100	65°C	37°C	C 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA (HindIII digest)
+NheI-HF® (2)	 recombinant timesaver 5min engineered cpg	G/CTAGC	CutSmart® Buffer	100	25	10	100	80°C	37°C	C 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA (HindIII digest)
+NheI-HF® RE-Mix®	 recombinant timesaver 5min engineered re-mix icon cpg	G/CTAGC	-	-	-	-	-	80°C	37°C	-	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping
+NlaIII	 recombinant timesaver 5min	CATG/	CutSmart® Buffer	10	10	10	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	FX174 DNA
+NlaIV	 recombinant dcm cpg	GGN/NCC	CutSmart® Buffer	10	10	10	100	65°C	37°C	B 	Not Sensitive	Blocked by Overlapping	Blocked by Overlapping	pBR322 DNA
+NmeAIII	 recombinant	GCCGAG(21/19)	CutSmart® Buffer + SAM	10	10	10	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	FX174 RF I DNA	c
+NotI (1) (2)	 recombinant timesaver 5min cpg	GC/GGCCGC	NEBuffer 3.1	10	50	100	25	65°C	37°C	C 	Not Sensitive	Not Sensitive	Blocked	pBC4 DNA
+NotI-HF® (2)	 recombinant timesaver 5min engineered cpg	GC/GGCCGC	CutSmart® Buffer	25	100	25	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	pBC4 DNA
+NotI-HF® RE-Mix® 	 recombinant timesaver 5min engineered re-mix icon cpg	GC/GGCCGC	-	-	-	-	-	65°C	37°C	-	Not Sensitive	Not Sensitive	Blocked
+NruI (1)	 recombinant timesaver 5min dam cpg	TCG/CGA	NEBuffer 3.1	10	10	100	10	No	37°C	A 	Blocked by Overlapping	Not Sensitive	Blocked	? DNA	b
+NruI-HF®	 recombinant timesaver 5min engineered dam cpg	TCG/CGA	CutSmart® Buffer	0	25	50	100	No	37°C	A 	Blocked by Overlapping		Blocked	? DNA
+NsiI (1)	 recombinant timesaver 5min	ATGCA/T	NEBuffer 3.1	10	75	100	25	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+NsiI-HF®	 recombinant timesaver 5min engineered	ATGCA/T	CutSmart® Buffer	10	20	10	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive
+NspI	 recombinant timesaver 5min	RCATG/Y	CutSmart® Buffer	100	100	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+Nt.AlwI	 recombinant dam	GGATC(4/-5)	CutSmart® Buffer	10	100	100	100	80°C	37°C	A 	Blocked	Not Sensitive	Not Sensitive	pUC101 DNA (dam-/dcm-)	e
+Nt.BbvCI	 recombinant cpg	CCTCAGC(-5/-7)	CutSmart® Buffer	50	100	10	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	supercoiled plasmid DNA	e
+Nt.BsmAI	 recombinant cpg	GTCTC(1/-5)	CutSmart® Buffer	100	50	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	supercoiled plasmid DNA	e
+Nt.BspQI	 recombinant	GCTCTTC(1/-7)	NEBuffer 3.1	10	25	100	10	80°C	50°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	pUC19 DNA	e
+Nt.BstNBI	 recombinant	GAGTC(4/-5)	NEBuffer 3.1	0	10	100	10	80°C	55°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	T7 DNA
+Nt.CviPII	 recombinant cpg	(0/-1)CCD	CutSmart® Buffer	10	100	25	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	pUC19 DNA	e
+PacI (2)	 recombinant timesaver 5min	TTAAT/TAA	CutSmart® Buffer	100	75	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	pNEB193 DNA
+PacI RE-Mix®	 recombinant timesaver 5min re-mix icon	TTAAT/TAA	-	-	-	-	-	65°C	37°C	-	Not Sensitive	Not Sensitive	Not Sensitive
+PaeR7I	 recombinant timesaver 5min cpg	C/TCGAG	CutSmart® Buffer	25	100	10	100	No	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA (HindIII digest)
+PciI	 recombinant	A/CATGT	NEBuffer 3.1	50	75	100	50*	80°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	pXba DNA
+PflFI	 recombinant timesaver 5min	GACN/NNGTC	CutSmart® Buffer	25	100	25	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	pBC4 DNA	b
+PflMI	 recombinant timesaver 5min dcm	CCANNNN/NTGG	NEBuffer 3.1	0	100	100	50	65°C	37°C	A 	Not Sensitive	Blocked by Overlapping	Not Sensitive	? DNA	3, b, d
+PhoI	 recombinant dcm cpg	GG/CC	CutSmart® Buffer	50	50	100	100	No	75°C	A 	Not Sensitive	Impaired by Some Combinations of Overlapping	Impaired by Some Combinations of Overlapping	? DNA
+PI-PspI	 recombinant	TGGCAAACAGCTATTATGGGTATTATGGGT(-13/-17)	NEBuffer PI-PspI + BSA	10	10	10	10	No	65°C	B 				pAKR7 XmnI-linearized Control Plasmid
+PI-SceI	 recombinant	ATCTATGTCGGGTGCGGAGAAAGAGGTAAT(-15/-19)	NEBuffer PI-SceI + BSA	10	10	10	10	65°C	37°C	B 				pBSvdeX XmnI-linearized Control Plasmid
+PleI	 recombinant cpg	GAGTC(4/5)	CutSmart® Buffer	25	50	25	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA	b, d
+PluTI	 recombinant cpg	GGCGC/C	CutSmart® Buffer	100	25	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	pXba DNA	b
+PmeI	 recombinant timesaver 5min cpg	GTTT/AAAC	CutSmart® Buffer	10	50	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA
+PmlI	 recombinant timesaver 5min cpg	CAC/GTG	CutSmart® Buffer	100	50	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA (HindIII digest)
+PpuMI	 recombinant timesaver 5min dcm	RG/GWCCY	CutSmart® Buffer	10	10	10	100	No	37°C	B 	Not Sensitive	Blocked by Overlapping	Not Sensitive	? DNA (HindIII digest)
+PshAI	 recombinant timesaver 5min cpg	GACNN/NNGTC	CutSmart® Buffer	25	50	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA
+PsiI	 recombinant	TTA/TAA	CutSmart® Buffer	10	100	10	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	3
+PspGI	 recombinant dcm	/CCWGG	CutSmart® Buffer	25	100	50	100	No	75°C	A 	Not Sensitive	Blocked	Not Sensitive	T7 DNA	3
+PspOMI	 recombinant dcm cpg	G/GGCCC	CutSmart® Buffer	10	10	10	100	65°C	37°C	B 	Not Sensitive	Impaired by Some Combinations of Overlapping	Blocked by Overlapping	pXba DNA
+PspXI	 recombinant cpg	VC/TCGAGB	CutSmart® Buffer	10	100	25	100	No	37°C	B 	Not Sensitive	Not Sensitive	Impaired	? DNA (HindIII digest)
+PstI (1)	 recombinant timesaver 5min	CTGCA/G	NEBuffer 3.1	75	75	100	50*	80°C	37°C	C 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+PstI-HF®	 recombinant timesaver 5min engineered	CTGCA/G	CutSmart® Buffer	10	75	50	100	No	37°C	C 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+PvuI (1)	 recombinant timesaver 5min cpg	CGAT/CG	NEBuffer 3.1	10	25	100	10	No	37°C	B 	Not Sensitive	Not Sensitive	Blocked	pXba DNA
+PvuI-HF®	 recombinant timesaver 5min engineered cpg	CGAT/CG	CutSmart® Buffer	25	100	100	100	No	37°C	B 	Not Sensitive	Not Sensitive	Blocked	pXba DNA
+PvuII (1)	 recombinant timesaver 5min	CAG/CTG	NEBuffer 3.1	50	100	100	100*	No	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+PvuII-HF®	 recombinant timesaver 5min engineered	CAG/CTG	CutSmart® Buffer	10	10	10	100	No	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+RsaI	 recombinant timesaver 5min cpg	GT/AC	CutSmart® Buffer	25	50	10	100	No	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA
+RsrII	 recombinant cpg	CG/GWCCG	CutSmart® Buffer	25	75	10	100	65°C	37°C	C 	Not Sensitive	Not Sensitive	Blocked	? DNA
+SacI (1)	 recombinant timesaver 5min	GAGCT/C	NEBuffer 1.1	100	50	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA (HindIII digest)
+SacI-HF®	 recombinant timesaver 5min engineered cpg	GAGCT/C	CutSmart® Buffer	10	50	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA (HindIII digest)
+SacII	 recombinant timesaver 5min cpg	CCGC/GG	CutSmart® Buffer	10	100	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	pXba DNA
+SalI (1) (2)	 recombinant timesaver 5min cpg	G/TCGAC	NEBuffer 3.1	10	10	100	10	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA (HindIII digest)
+SalI-HF® (2)	 recombinant timesaver 5min engineered cpg	G/TCGAC	CutSmart® Buffer	10	100	100	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA (HindIII digest)
+SalI-HF® RE-Mix®	 recombinant timesaver 5min engineered re-mix icon cpg	G/TCGAC	-	-	-	-	-	80°C	37°C	-	Not Sensitive	Not Sensitive	Blocked
+SapI	 recombinant timesaver 5min	GCTCTTC(1/4)	CutSmart® Buffer	75	50	10	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+Sau3AI	 recombinant cpg	/GATC	NEBuffer 1.1	100	50	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked by Overlapping	? DNA	b
+Sau96I	 recombinant dcm cpg	G/GNCC	CutSmart® Buffer	50	100	100	100	65°C	37°C	A 	Not Sensitive	Blocked by Overlapping	Blocked by Overlapping	? DNA
+SbfI (1)	 recombinant timesaver 5min	CCTGCA/GG	CutSmart® Buffer	50	25	10	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	3
+SbfI-HF®	 recombinant timesaver 5min engineered	CCTGCA/GG	CutSmart® Buffer	50	25	10	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+ScaI (1) (2)	 recombinant	AGT/ACT	NEBuffer 3	N/R	N/R	100	N/R	80°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+ScaI-HF® (2)	 recombinant timesaver 5min engineered	AGT/ACT	CutSmart® Buffer	100	100	10	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+ScaI-HF® RE-Mix®	 recombinant timesaver 5min engineered re-mix icon	AGT/ACT	-	-	-	-	-	65°C	37°C	-	Not Sensitive	Not Sensitive	Not Sensitive
+ScrFI	 recombinant dcm cpg	CC/NGG	CutSmart® Buffer	100	100	100	100	65°C	37°C	C 	Not Sensitive	Blocked by Overlapping	Blocked by Overlapping	? DNA	2, a
+SexAI	 recombinant dcm	A/CCWGGT	CutSmart® Buffer	100	75	50	100	65°C	37°C	A 	Not Sensitive	Blocked	Not Sensitive	pBC4 DNA (dcm-)	3, b, d
+SfaNI	 recombinant cpg	GCATC(5/9)	NEBuffer 3.1	10	75	100	25	65°C	37°C	B 	Not Sensitive	Not Sensitive	Impaired by Some Combinations of Overlapping	FX174 RF I DNA	3, b
+SfcI	 recombinant	C/TRYAG	CutSmart® Buffer	75	50	25	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	3
+SfiI	 recombinant timesaver 5min dcm cpg	GGCCNNNN/NGGCC	CutSmart® Buffer	25	100	50	100	No	50°C	C 	Not Sensitive	Impaired by Overlapping 	Blocked by Some Combinations of Overlapping	Adenovirus-2 DNA
+SfoI	 recombinant timesaver 5min cpg dcm	GGC/GCC	CutSmart® Buffer	50	100	100	100	No	37°C	B 	Not Sensitive	Blocked by Some Combinations of Overlapping	Blocked	? DNA (HindIII digest)
+SgrAI	 recombinant cpg	CR/CCGGYG	CutSmart® Buffer	100	100	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	? DNA	1
+SmaI	 recombinant timesaver 5min cpg	CCC/GGG	CutSmart® Buffer	10	10	10	100	65°C	25°C	B 	Not Sensitive	Not Sensitive	Blocked	? DNA (HindIII digest)	b
+SmlI	 recombinant	C/TYRAG	CutSmart® Buffer	25	75	25	100	No	55°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	b
+SnaBI	 recombinant cpg	TAC/GTA	CutSmart® Buffer	50*	50	10	100	80°C	37°C	A 	Not Sensitive	Not Sensitive	Blocked	T7 DNA	1
+SpeI (1) (2)	 recombinant timesaver 5min	A/CTAGT	CutSmart® Buffer	75	100	25	100	80°C	37°C	C 	Not Sensitive	Not Sensitive	Not Sensitive	Adenovirus-2 DNA
+SpeI RE-Mix®	 recombinant timesaver 5min re-mix icon	A/CTAGT	-	-	-	-	-	80°C	37°C	-	Not Sensitive	Not Sensitive	Not Sensitive
+SpeI-HF®	 recombinant timesaver 5min engineered	A/CTAGT	CutSmart® Buffer	25	50	10	100	80°C	37°C	C 	Not Sensitive	Not Sensitive	Not Sensitive	pXba DNA
+SphI (1)	 recombinant	GCATG/C	NEBuffer 2.1	100	100	50	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	2
+SphI-HF®	 recombinant timesaver 5min engineered	GCATG/C	CutSmart® Buffer	50	25	10	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+SrfI	 recombinant timesaver 5min engineered cpg	GCCC/GGGC	CutSmart® Buffer	10	50	0	100	65°C	37°C	B 			Blocked
+SspI (1)	 recombinant timesaver 5min	AAT/ATT	NEBuffer SspI	50	100	50	50	65°C	37°C	C 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+SspI-HF®	 recombinant timesaver 5min engineered	AAT/ATT	CutSmart® Buffer	25	100	10	100	65°C	37°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+StuI	 recombinant timesaver 5min dcm	AGG/CCT	CutSmart® Buffer	50	100	50	100	No	37°C	A 	Not Sensitive	Blocked by Overlapping	Not Sensitive	? DNA
+StyD4I	 recombinant timesaver 5min dcm cpg	/CCNGG	CutSmart® Buffer	10	100	100	100	65°C	37°C	B 	Not Sensitive	Blocked by Overlapping	Impaired by Overlapping 	? DNA
+StyI (1)	 recombinant timesaver 5min	C/CWWGG	NEBuffer 3.1	10	25	100	10	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	b
+StyI-HF®	 recombinant timesaver 5min engineered	C/CWWGG	CutSmart® Buffer	25	100	25	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+SwaI	 recombinant timesaver 5min	ATTT/AAAT	NEBuffer 3.1	10	10	100	10	65°C	25°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	M13mp19 RF I DNA	b, d
+TaqaI	 recombinant timesaver 5min dam	T/CGA	CutSmart® Buffer	50	75	100	100	80°C	65°C	B 	Blocked by Overlapping	Not Sensitive	Not Sensitive	? DNA
+TfiI	 recombinant timesaver 5min cpg	G/AWTC	CutSmart® Buffer	50	100	100	100	No	65°C	C 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA
+TliI	 recombinant cpg	C/TCGAG	NEBuffer 3 + BSA	10	50	100	50	No	75°C	B 	Not Sensitive	Not Sensitive	Impaired	? DNA (HindIII digest)
+TseI	 timesaver 5min cpg	G/CWGC	CutSmart® Buffer	75	100	100	100	No	65°C	B 	Not Sensitive	Not Sensitive	Blocked by Some Combinations of Overlapping	? DNA	3
+Tsp45I		/GTSAC	CutSmart® Buffer	100	50	10	100	No	65°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+Tsp509I		/AATT	NEBuffer 1	N/R	N/R	N/R	N/R	No	65°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+TspMI	 timesaver 5min cpg	C/CCGGG	CutSmart® Buffer	50*	75*	50*	100	No	75°C	B 	Not Sensitive	Not Sensitive	Blocked	pUCAdeno plasmid DNA	d
+TspRI	 recombinant timesaver 5min	NNCASTGNN/	CutSmart® Buffer	25	50	25	100	No	65°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA
+Tth111I	 recombinant timesaver 5min	GACN/NNGTC	CutSmart® Buffer	25	100	25	100	No	65°C	B 	Not Sensitive	Not Sensitive	Not Sensitive	pBC4 DNA	b
+XbaI (2)	 recombinant timesaver 5min dam	T/CTAGA	CutSmart® Buffer	10	100	75	100	65°C	37°C	A 	Blocked by Overlapping	Not Sensitive	Not Sensitive	? DNA (dam-/Hind III digest)
+XbaI RE-Mix®	 recombinant timesaver 5min re-mix icon dam	T/CTAGA	-	-	-	-	-	65°C	37°C	-	Blocked by Overlapping	Not Sensitive	Not Sensitive
+XcmI	 recombinant	CCANNNNN/NNNNTGG	NEBuffer 2.1	10	100	25	100	65°C	37°C	C 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	2
+XhoI (2)	 recombinant timesaver 5min cpg	C/TCGAG	CutSmart® Buffer	75	100	100	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Impaired	? DNA (HindIII digest)	b
+XhoI RE-Mix®	 recombinant timesaver 5min re-mix icon cpg	C/TCGAG	-	-	-	-	-	80°C	37°C	-	Not Sensitive	Not Sensitive	Impaired
+XmaI	 recombinant timesaver 5min cpg	C/CCGGG	CutSmart® Buffer	25	50	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Impaired	Adenovirus-2 DNA	3
+XmnI	 recombinant timesaver 5min	GAANN/NNTTC	CutSmart® Buffer	50	75	10	100	65°C	37°C	A 	Not Sensitive	Not Sensitive	Not Sensitive	? DNA	b
+ZraI	 recombinant cpg	GAC/GTC	CutSmart® Buffer	100	25	10	100	80°C	37°C	B 	Not Sensitive	Not Sensitive	Blocked	? DNA
