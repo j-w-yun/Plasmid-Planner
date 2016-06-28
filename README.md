@@ -1,10 +1,10 @@
-# Plasmid-Planner
+# Plasmid Planner
 Free version with limited functionality
 <br>
 Contact jay50@pitt.edu for further information
 <hr>
 <br>
-<bold>Full version implementations:</bold>
+# Full version implementations
 <br>
       Completely automated plasmid planning - Ordering solutions by preference
       <br>
