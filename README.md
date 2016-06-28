@@ -2,6 +2,8 @@
 Free version with limited functionality
 <br>
 Contact jay50@pitt.edu for further information
+<br>
+Enzyme list obtained by courtesy of New England Biolabs <https://www.neb.com/>
 <hr>
 <br>
 # Full version implementations
