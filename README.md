@@ -9,7 +9,7 @@ List of NEB enzymes by courtesy of New England Biolabs <https://www.neb.com/>
 <br>
 # Full version implementations
 <br>
-      Completely automated plasmid planning - Ordering solutions by preference
+      Completely automated plasmid planning - Order solutions by preference
       <br>
       BLAST
       <br>
