@@ -1,5 +1,5 @@
 # Plasmid Planner
-Free version with limited functionality
+Free, open source version with limited functionality
 <br>
 Contact jay50@pitt.edu for further licensing information
 <br>
