@@ -1,9 +1,9 @@
 # Plasmid Planner
 Open source version with limited functionality
 <br>
-Contact jay50@pitt.edu for further licensing information
-<br>
 List of NEB enzymes by courtesy of New England Biolabs <https://www.neb.com/>
+<br>
+Please contact jay50@pitt.edu for further licensing information
 <hr>
 <br>
 # Full version implementations
