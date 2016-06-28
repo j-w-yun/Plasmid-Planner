@@ -1,8 +1,8 @@
 # Plasmid-Planner
 Free version with limited functionality
 <br>
-Contact jay50@pitt.edu for information
-<br>
+Contact jay50@pitt.edu for further information
+<hr>
 <br>
 Full version implementations:
 <br>
@@ -15,7 +15,7 @@ Full version implementations:
       Customization (i.e. Sync enzymes in inventory, show BLAST results in visual panel, etc.)
       <br>
       And more...
-<br>
+<hr>
 <br>
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/1.png)
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/2.png)
