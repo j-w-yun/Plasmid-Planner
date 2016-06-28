@@ -27,7 +27,6 @@ List of NEB enzymes by courtesy of New England Biolabs <https://www.neb.com/>
       Infectious Diseases and Microbiology
       University of Pittsburgh
       
-      
       Jaewan Yun
       Undergraduate Student
       Molecular Biology
