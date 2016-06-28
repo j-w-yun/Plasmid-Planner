@@ -4,7 +4,7 @@ Free version with limited functionality
 Contact jay50@pitt.edu for further information
 <hr>
 <br>
-Full version implementations:
+<bold>Full version implementations:</bold>
 <br>
       Completely automated plasmid planning - Ordering solutions by preference
       <br>
