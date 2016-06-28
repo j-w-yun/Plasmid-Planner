@@ -1,7 +1,7 @@
 # Plasmid Planner
 Free version with limited functionality
 <br>
-Contact jay50@pitt.edu for further information
+Contact jay50@pitt.edu for further licensing information
 <br>
 <br>
 Enzyme list obtained by courtesy of New England Biolabs <https://www.neb.com/>
