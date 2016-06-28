@@ -3,7 +3,6 @@ Open source version with limited functionality
 <br>
 Contact jay50@pitt.edu for further licensing information
 <br>
-<br>
 List of NEB enzymes by courtesy of New England Biolabs <https://www.neb.com/>
 <hr>
 <br>
