@@ -1,7 +1,7 @@
 # Plasmid-Planner
 Free version with limited functionality
 <br>
-Contact jay50@pitt.edu for full-version license
+Contact jay50@pitt.edu for information
 <br>
 <br>
 Full version implementations:
