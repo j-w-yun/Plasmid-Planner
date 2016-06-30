@@ -10,7 +10,7 @@ List of NEB enzymes by courtesy of New England Biolabs <https://www.neb.com/>
       Customization (i.e. Sync enzymes in inventory, add custom enzymes, show BLAST results in visual panel, etc.)
       Enzyme database updates
       etc.
-Please contact jay50@pitt.edu for further licensing information
+Contact jay50@pitt.edu for licensing details
 <hr>
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/1.png)
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/2.png)
