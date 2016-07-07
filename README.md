@@ -27,8 +27,12 @@ Contact jay50@pitt.edu for licensing details
 # Full version snapshots
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/6.png)
 Upgraded manual planning tool
+<br>
+
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/7.png)
 Automated planning interface
+<br>
+
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/8.png)
 Enumeration of all possible expression vector construction, instantly planned by an algorithm
 <br>
