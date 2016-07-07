@@ -8,11 +8,11 @@ List of NEB enzymes by courtesy of New England Biolabs <https://www.neb.com/>
       
       +
       
-      Completely automated plasmid planning - Order solutions by preference
+      Fully automated plasmid planning - enumerate all possible solutions for cloning
       BLAST
       ORF finding
       Customization (i.e. Sync enzymes in inventory, add custom enzymes, show BLAST results in visual panel, etc.)
-      Regulat software updates and support
+      Software updates and support
       
 Contact jay50@pitt.edu for licensing details
 <hr>
