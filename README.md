@@ -21,8 +21,10 @@ Contact jay50@pitt.edu for licensing details
 <br>
 
 # Full version snapshots
-![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/1.png)
-![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/1.png)
+![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/6.png)
+![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/7.png)
+![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/8.png)
+<br>
 
 # Brought to you by
       Narasimhan Jayanth Venkatachari
