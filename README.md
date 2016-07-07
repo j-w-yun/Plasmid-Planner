@@ -8,8 +8,8 @@ List of NEB enzymes by courtesy of New England Biolabs <https://www.neb.com/>
       BLAST
       ORF finding
       Customization (i.e. Sync enzymes in inventory, add custom enzymes, show BLAST results in visual panel, etc.)
-      Enzyme database updates
-      etc.
+      Software updates and support
+      
 Contact jay50@pitt.edu for licensing details
 <hr>
 # Free version snapshots
