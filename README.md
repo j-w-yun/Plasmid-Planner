@@ -33,7 +33,7 @@ Contact jay50@pitt.edu for licensing details
 <br>
 
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/8.png)
-<b>Enumeration of all possible expression vector construction schemes, instantly planned by an algorithm by a push of a button</b>
+<b>Enumeration of all possible expression vector construction schemes, instantly planned by an algorithm at the push of a button</b>
 <br>
 
 # Brought to you by
