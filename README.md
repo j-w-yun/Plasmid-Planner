@@ -4,6 +4,8 @@ Open source version with limited functionality
 List of NEB enzymes by courtesy of New England Biolabs <https://www.neb.com/>
 <hr>
 # Full version implementations
+      All features in free version
+                  +
       Completely automated plasmid planning - Order solutions by preference
       BLAST
       ORF finding
