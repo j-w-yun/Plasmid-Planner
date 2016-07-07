@@ -14,7 +14,7 @@ List of NEB enzymes by courtesy of New England Biolabs <https://www.neb.com/>
       Customization (i.e. Sync enzymes in inventory, add custom enzymes, show BLAST results in visual panel, etc.)
       Software updates and support
       
-Contact jay50@pitt.edu for licensing details
+Contact jay50@pitt.edu for trial or licensing details
 <hr>
 # Free version snapshots
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/1.png)
@@ -33,7 +33,7 @@ Contact jay50@pitt.edu for licensing details
 <br>
 
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/8.png)
-<b>Enumeration of all possible expression vector construction schemes, instantly planned by an algorithm at the push of a button</b>
+<b>Enumeration of all possible expression vector construction schemes, instantly planned by an algorithm at the push of a button. Find the most optimal construct without hours of planning.</b>
 <br>
 
 # Brought to you by
