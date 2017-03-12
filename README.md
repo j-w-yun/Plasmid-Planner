@@ -1,7 +1,6 @@
 # Plasmid Planner
-Open source version with limited functionality
 <br>
-List of NEB enzymes by courtesy of New England Biolabs <https://www.neb.com/>
+List of NEB enzymes from New England Biolabs <https://www.neb.com/>
 <hr>
 # Full version implementations
       All features in free version
@@ -9,21 +8,17 @@ List of NEB enzymes by courtesy of New England Biolabs <https://www.neb.com/>
       +
       
       Fully automated plasmid planning - enumerate all possible solutions for cloning
-      BLAST
-      ORF finding
-      Customization (i.e. Sync enzymes in inventory, add custom enzymes, show BLAST results in visual panel, etc.)
-      Software updates and support
       
-Contact jay50@pitt.edu for trial or licensing details
+Contact jay50@pitt.edu for questions
 <hr>
-# Free version snapshots
+# Snapshots
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/1.png)
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/2.png)
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/4.png)
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/5.png)
 <br>
 
-# Full version snapshots
+# Full snapshots
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/6.png)
 <b>Upgraded manual planning tool</b>
 <br>
@@ -33,10 +28,10 @@ Contact jay50@pitt.edu for trial or licensing details
 <br>
 
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/8.png)
-<b>Enumeration of all possible expression vector construction schemes, instantly planned by an algorithm at the push of a button. Find the most optimal construct without hours of planning.</b>
+<b>Enumeration of all possible expression vector construction schemes. Automatically find the most optimal constructs.</b>
 <br>
 
-# Brought to you by
+# Credits
       Narasimhan Jayanth Venkatachari
       M.D. Ph.D.
       Infectious Diseases and Microbiology
