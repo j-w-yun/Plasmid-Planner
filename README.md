@@ -2,14 +2,12 @@
 <br>
 List of NEB enzymes from New England Biolabs <https://www.neb.com/>
 <hr>
-# Full version implementations
-      All features in free version
-      
+# Full implementations
+      All features available in open source version
       +
-      
       Fully automated plasmid planning - enumerate all possible solutions for cloning
       
-Contact jay50@pitt.edu for questions
+Contact jay50@pitt.edu for details.
 <hr>
 # Snapshots
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/1.png)
