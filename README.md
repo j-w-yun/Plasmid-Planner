@@ -1,18 +1,24 @@
 # Plasmid Planner
 <br>
 List of NEB enzymes from New England Biolabs <https://www.neb.com/>
+
 <hr>
+
 # Full implementations
       All features available in open source version
       +
       Fully automated plasmid planning - enumerate all possible solutions for cloning
-      
 Contact jay50@pitt.edu for details.
+
 <hr>
+
 # Snapshots
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/1.png)
+<br>
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/2.png)
+<br>
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/4.png)
+<br>
 ![alt tag](https://github.com/Jaewan-Yun/PlasmidPlanner/blob/master/pic/5.png)
 <br>
 
@@ -29,7 +35,6 @@ Contact jay50@pitt.edu for details.
 <b>Enumeration of all possible expression vector construction schemes. Automatically find the most optimal constructs.</b>
 <br>
 
-# Credits
       Narasimhan Jayanth Venkatachari
       M.D. Ph.D.
       Infectious Diseases and Microbiology
