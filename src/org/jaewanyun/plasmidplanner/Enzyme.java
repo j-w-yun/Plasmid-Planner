@@ -51,32 +51,32 @@ public class Enzyme {
 		this.origRecognitionSequenceRegex = Utility.enumerate(origRecognitionSequence);
 		this.compRecognitionSequenceRegex = Utility.enumerate(compRecognitionSequence);
 
-		origCompile = Pattern.compile(this.origRecognitionSequenceRegex, Pattern.UNICODE_CASE);
-		compCompile = Pattern.compile(this.compRecognitionSequenceRegex, Pattern.UNICODE_CASE);
+		this.origCompile = Pattern.compile(this.origRecognitionSequenceRegex, Pattern.UNICODE_CASE);
+		this.compCompile = Pattern.compile(this.compRecognitionSequenceRegex, Pattern.UNICODE_CASE);
 	}
 
 
 	@Override
 	public String toString() {
-		return ("Enzyme: " + enzymeName +
-				"\tFeature: " + description +
-				"\tRecognition Seq.: " + originalSequence +
-				"\tSupplied Buffer: " + suppliedBuffer +
-				"\t1.1 Buffer: " + activity11 + "%" +
-				"\t2.1 Buffer: " + activity21 + "%" +
-				"\t3.1 Buffer: " + activity31 + "%" +
-				"\tCutSmart Buffer: " + activityCutsmart + "%" +
-				"\tInactivation Temp.: " + heatInactivation +
-				"\tIncubation Temp.: " + incubationTemp +
-				"\tDiluent: " + diluent);
+		return ("Enzyme: " + this.enzymeName +
+				"\tInfo:" + this.description +
+				"\tRecognition Seq.: " + this.originalSequence +
+				"\tSupplied Buffer: " + this.suppliedBuffer +
+				"\t1.1 Buffer: " + this.activity11 + "%" +
+				"\t2.1 Buffer: " + this.activity21 + "%" +
+				"\t3.1 Buffer: " + this.activity31 + "%" +
+				"\tCutSmart Buffer: " + this.activityCutsmart + "%" +
+				"\tInactivation Temp.: " + this.heatInactivation +
+				"\tIncubation Temp.: " + this.incubationTemp +
+				"\tDiluent: " + this.diluent);
 	}
 
 	/*
 	 * Digests and modifies the plasmid passed in
 	 */
 	public void digest(Plasmid plasmid) {
-		Matcher origMatcher = origCompile.matcher(plasmid.getSequence());
-		Matcher compMatcher = compCompile.matcher(plasmid.getSequence());
+		Matcher origMatcher = this.origCompile.matcher(plasmid.getSequence());
+		Matcher compMatcher = this.compCompile.matcher(plasmid.getSequence());
 
 		// Get these to modify them
 		HashMap<Integer, HashSet<String>> locationAndEnzyme;
@@ -96,8 +96,8 @@ public class Enzyme {
 		int position = 0;
 		while(origMatcher.find(position)) {
 			int start = origMatcher.start();
-			int overhangStart = start + Math.min(origCut, compCut);
-			int overhangEnd = start + Math.max(origCut, compCut);
+			int overhangStart = start + Math.min(this.origCut, this.compCut);
+			int overhangEnd = start + Math.max(this.origCut, this.compCut);
 			String plasmidSequence = plasmid.getSequence();
 			String origOverhangSequence = "";
 			if(overhangEnd < plasmid.getLength()) {
@@ -110,69 +110,61 @@ public class Enzyme {
 				// Check if the map contains the cut location and append names
 				if(locationAndEnzyme.containsKey(overhangStart)) {
 					HashSet<String> got = locationAndEnzyme.get(overhangStart);
-					got.add(enzymeName);
+					got.add(this.enzymeName);
 				}
 				else {
 					HashSet<String> enzymes = new HashSet<>();
-					enzymes.add(enzymeName);
+					enzymes.add(this.enzymeName);
 					locationAndEnzyme.put(overhangStart, enzymes);
 				}
 
 				// Check if the map contains the cut location and append overhangs
 				if(locationAndOverhang.containsKey(overhangStart)) {
 					HashSet<Overhang> got = locationAndOverhang.get(overhangStart);
-					got.add(plasmid.getOverhang(origOverhangSequence, (origCut > compCut)));
+					got.add(Plasmid.getOverhang(origOverhangSequence, (this.origCut > this.compCut)));
 				}
 				else {
 					HashSet<Overhang> overhangs = new HashSet<>();
-					overhangs.add(plasmid.getOverhang(origOverhangSequence, (origCut > compCut)));
+					overhangs.add(Plasmid.getOverhang(origOverhangSequence, (this.origCut > this.compCut)));
 					locationAndOverhang.put(overhangStart, overhangs);
 				}
 
 				// Check if the map contains the enzyme and append the locations
-				if(enzymeAndLocation.containsKey(enzymeName)) {
-					HashSet<Integer> got = enzymeAndLocation.get(enzymeName);
+				if(enzymeAndLocation.containsKey(this.enzymeName)) {
+					HashSet<Integer> got = enzymeAndLocation.get(this.enzymeName);
 					got.add(overhangStart);
 				}
 				else {
 					HashSet<Integer> locations = new HashSet<>();
 					locations.add(overhangStart);
-					enzymeAndLocation.put(enzymeName, locations);
+					enzymeAndLocation.put(this.enzymeName, locations);
 				}
 
 				// Check if the map contains the overhang and append the enzymes
-				Overhang overhang = plasmid.getOverhang(origOverhangSequence, (origCut > compCut));
+				Overhang overhang = Plasmid.getOverhang(origOverhangSequence, (this.origCut > this.compCut));
 				if(overhangAndEnzyme.containsKey(overhang)) {
 					HashSet<String> got = overhangAndEnzyme.get(overhang);
-					got.add(enzymeName);
+					got.add(this.enzymeName);
 				}
 				else {
 					HashSet<String> names = new HashSet<>();
-					names.add(enzymeName);
+					names.add(this.enzymeName);
 					overhangAndEnzyme.put(overhang, names);
 				}
 
 				// Check if the map contains the enzyme and append the overhangs
-				if(enzymeAndOverhang.containsKey(enzymeName)) {
-					HashSet<Overhang> got = enzymeAndOverhang.get(enzymeName);
-					got.add(plasmid.getOverhang(origOverhangSequence, (origCut > compCut)));
+				if(enzymeAndOverhang.containsKey(this.enzymeName)) {
+					HashSet<Overhang> got = enzymeAndOverhang.get(this.enzymeName);
+					got.add(Plasmid.getOverhang(origOverhangSequence, (this.origCut > this.compCut)));
 				}
 				else {
 					HashSet<Overhang> overhangs = new HashSet<>();
-					overhangs.add(plasmid.getOverhang(origOverhangSequence, (origCut > compCut)));
-					enzymeAndOverhang.put(enzymeName, overhangs);
+					overhangs.add(Plasmid.getOverhang(origOverhangSequence, (this.origCut > this.compCut)));
+					enzymeAndOverhang.put(this.enzymeName, overhangs);
 				}
 
 				// Check if the map contains the enzyme + location and append the overhangs
-				enzymeAndLocationAndOverhang.put(enzymeName + Integer.toString(overhangStart), plasmid.getOverhang(origOverhangSequence, (origCut > compCut)));
-
-				//				// TODO: Debug
-				//				if(enzymeName.contains("Kp")) {
-				//					System.out.println(enzymeName);
-				//					System.out.println("orig > comp ? " + (origCut > compCut));
-				//					System.out.println("Comp overhang : " + origOverhangSequence);
-				//					System.out.println(plasmid.getOverhang(origOverhangSequence, (origCut > compCut)) + "\n");
-				//				}
+				enzymeAndLocationAndOverhang.put(this.enzymeName + Integer.toString(overhangStart), Plasmid.getOverhang(origOverhangSequence, (this.origCut > this.compCut)));
 
 				position++;
 			}
@@ -182,8 +174,8 @@ public class Enzyme {
 			position = 0;
 			while(compMatcher.find(position)) {
 				int start = compMatcher.start();
-				int overhangStart = start + Math.min(origCut, compCut);
-				int overhangEnd = start + Math.max(origCut, compCut);
+				int overhangStart = start + Math.min(this.origCut, this.compCut);
+				int overhangEnd = start + Math.max(this.origCut, this.compCut);
 				String plasmidSequence = plasmid.getSequence();
 				String compOverhangSequence = "";
 				if(overhangEnd < plasmid.getLength()) {
@@ -196,70 +188,62 @@ public class Enzyme {
 					// Check if the map contains the cut location and append names
 					if(locationAndEnzyme.containsKey(overhangStart)) {
 						HashSet<String> got = locationAndEnzyme.get(overhangStart);
-						got.add(enzymeName);
+						got.add(this.enzymeName);
 					}
 					else {
 						HashSet<String> enzymes = new HashSet<>();
-						enzymes.add(enzymeName);
+						enzymes.add(this.enzymeName);
 						locationAndEnzyme.put(overhangStart, enzymes);
 					}
 
 					// Check if the map contains the cut location and append overhangs
 					if(locationAndOverhang.containsKey(overhangStart)) {
 						HashSet<Overhang> got = locationAndOverhang.get(overhangStart);
-						got.add(plasmid.getOverhang(compOverhangSequence, (origCut > compCut)));
+						got.add(Plasmid.getOverhang(compOverhangSequence, (this.origCut > this.compCut)));
 
 					}
 					else {
 						HashSet<Overhang> overhangs = new HashSet<>();
-						overhangs.add(plasmid.getOverhang(compOverhangSequence, (origCut > compCut)));
+						overhangs.add(Plasmid.getOverhang(compOverhangSequence, (this.origCut > this.compCut)));
 						locationAndOverhang.put(overhangStart, overhangs);
 					}
 
 					// Check if the map contains the enzyme and append the locations
-					if(enzymeAndLocation.containsKey(enzymeName)) {
-						HashSet<Integer> got = enzymeAndLocation.get(enzymeName);
+					if(enzymeAndLocation.containsKey(this.enzymeName)) {
+						HashSet<Integer> got = enzymeAndLocation.get(this.enzymeName);
 						got.add(overhangStart);
 					}
 					else {
 						HashSet<Integer> locations = new HashSet<>();
 						locations.add(overhangStart);
-						enzymeAndLocation.put(enzymeName, locations);
+						enzymeAndLocation.put(this.enzymeName, locations);
 					}
 
 					// Check if the map contains the overhang and append the enzymes
-					Overhang overhang = plasmid.getOverhang(compOverhangSequence, (origCut > compCut));
+					Overhang overhang = Plasmid.getOverhang(compOverhangSequence, (this.origCut > this.compCut));
 					if(overhangAndEnzyme.containsKey(overhang)) {
 						HashSet<String> got = overhangAndEnzyme.get(overhang);
-						got.add(enzymeName);
+						got.add(this.enzymeName);
 					}
 					else {
 						HashSet<String> names = new HashSet<>();
-						names.add(enzymeName);
+						names.add(this.enzymeName);
 						overhangAndEnzyme.put(overhang, names);
 					}
 
 					// Check if the map contains the enzyme and append the overhangs
-					if(enzymeAndOverhang.containsKey(enzymeName)) {
-						HashSet<Overhang> got = enzymeAndOverhang.get(enzymeName);
-						got.add(plasmid.getOverhang(compOverhangSequence, (origCut > compCut)));
+					if(enzymeAndOverhang.containsKey(this.enzymeName)) {
+						HashSet<Overhang> got = enzymeAndOverhang.get(this.enzymeName);
+						got.add(Plasmid.getOverhang(compOverhangSequence, (this.origCut > this.compCut)));
 					}
 					else {
 						HashSet<Overhang> overhangs = new HashSet<>();
-						overhangs.add(plasmid.getOverhang(compOverhangSequence, (origCut > compCut)));
-						enzymeAndOverhang.put(enzymeName, overhangs);
+						overhangs.add(Plasmid.getOverhang(compOverhangSequence, (this.origCut > this.compCut)));
+						enzymeAndOverhang.put(this.enzymeName, overhangs);
 					}
 
 					// No need to check as there can only be one answer
-					enzymeAndLocationAndOverhang.put(enzymeName + Integer.toString(overhangStart), plasmid.getOverhang(compOverhangSequence, (origCut > compCut)));
-
-					//					// TODO: Debug
-					//					if(enzymeName.contains("Kp")) {
-					//						System.out.println(enzymeName);
-					//						System.out.println("orig > comp ? " + (origCut > compCut));
-					//						System.out.println("Comp overhang : " + compOverhangSequence);
-					//						System.out.println(plasmid.getOverhang(compOverhangSequence, (origCut > compCut)) + "\n");
-					//					}
+					enzymeAndLocationAndOverhang.put(this.enzymeName + Integer.toString(overhangStart), Plasmid.getOverhang(compOverhangSequence, (this.origCut > this.compCut)));
 				}
 				position++;
 			}
@@ -268,23 +252,23 @@ public class Enzyme {
 
 
 	public String getEnzymeName() {
-		return enzymeName;
+		return this.enzymeName;
 	}
 
 	public String getOrigRecognitionSequence() {
-		return origRecognitionSequence;
+		return this.origRecognitionSequence;
 	}
 
 	public String getCompRecognitionSequence() {
-		return compRecognitionSequence;
+		return this.compRecognitionSequence;
 	}
 
 	public int getOrigCut() {
-		return origCut;
+		return this.origCut;
 	}
 
 	public int getCompCut() {
-		return compCut;
+		return this.compCut;
 	}
 
 

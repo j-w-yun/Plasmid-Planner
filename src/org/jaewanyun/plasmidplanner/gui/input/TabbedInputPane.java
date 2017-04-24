@@ -1,4 +1,4 @@
-package org.jaewanyun.plasmidplanner.gui;
+package org.jaewanyun.plasmidplanner.gui.input;
 
 import java.awt.Button;
 import java.awt.Color;
@@ -30,8 +30,10 @@ import javax.swing.text.Highlighter;
 import javax.swing.text.Highlighter.HighlightPainter;
 
 import org.jaewanyun.plasmidplanner.Utility;
+import org.jaewanyun.plasmidplanner.gui.GUIsettings;
+import org.jaewanyun.plasmidplanner.gui.ProgressPanel;
 
-class TabbedInputPane extends JTabbedPane {
+public class TabbedInputPane extends JTabbedPane {
 
 	private static final long serialVersionUID = 1L;
 	private static volatile JTextArea insertText;
@@ -99,8 +101,8 @@ class TabbedInputPane extends JTabbedPane {
 		});
 		vectorTextPane.setBorder(BorderFactory.createEmptyBorder());
 
-		addTab("   Insert  ", null, insertTextPane, "");
-		addTab("   Vector  ", null, vectorTextPane, "");
+		addTab("     Insert    ", null, insertTextPane, "");
+		addTab("     Vector    ", null, vectorTextPane, "");
 
 		// Not a SwingWorker because it does not need to be keep track of its progress
 		new Thread(() -> {
@@ -140,15 +142,11 @@ class TabbedInputPane extends JTabbedPane {
 		setToolTipText(null);
 	}
 
-	static TabbedInputPane getTabbedInputPane() {
-		return tabbedInputPane == null ? tabbedInputPane = new TabbedInputPane(): tabbedInputPane;
-	}
-
-	static String getInsertSequence() {
+	public static String getInsertSequence() {
 		return SequenceFormatter.format(insertText.getText());
 	}
 
-	static String getVectorsequence() {
+	public static String getVectorSequence() {
 		return SequenceFormatter.format(vectorText.getText());
 	}
 
@@ -333,6 +331,10 @@ class TabbedInputPane extends JTabbedPane {
 				}.execute();
 			}
 		}
+	}
+
+	public static TabbedInputPane createTabbedInputPane() {
+		return tabbedInputPane == null ? tabbedInputPane = new TabbedInputPane(): tabbedInputPane;
 	}
 }
 

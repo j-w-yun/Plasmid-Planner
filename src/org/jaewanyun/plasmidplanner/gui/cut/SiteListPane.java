@@ -1,4 +1,4 @@
-package org.jaewanyun.plasmidplanner.gui;
+package org.jaewanyun.plasmidplanner.gui.cut;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -18,9 +18,11 @@ import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 
 import org.jaewanyun.plasmidplanner.Planner;
+import org.jaewanyun.plasmidplanner.gui.GUIsettings;
 
 public class SiteListPane extends JSplitPane {
 
+	private static final long serialVersionUID = 1L;
 	private static JTextArea insertSiteList;
 	private static JTextArea vectorSiteList;
 	private static JScrollPane insertSiteListPane;
@@ -34,7 +36,7 @@ public class SiteListPane extends JSplitPane {
 		insertSiteListPanel = new JPanel(new BorderLayout());
 		insertSiteListPanel.setBorder(BorderFactory.createEmptyBorder());
 
-		insertSiteList = new JTextArea("Digest to View");
+		insertSiteList = new JTextArea("Run the digest to view cutting location information");
 		insertSiteList.setEditable(true);
 		insertSiteList.setMargin(new Insets(15, 15, 15, 15));
 		insertSiteList.setFont(new Font("Lucida Sans Typewriter", Font.ITALIC | Font.BOLD, 12));
@@ -42,12 +44,13 @@ public class SiteListPane extends JSplitPane {
 		insertSiteListPane = new JScrollPane(insertSiteList,
 				ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		insertSiteListPane.getVerticalScrollBar().setUnitIncrement(40);
 		insertSiteListPanel.add(insertSiteListPane);
 
 		vectorSiteListPanel = new JPanel(new BorderLayout());
 		vectorSiteListPanel.setBorder(BorderFactory.createEmptyBorder());
 
-		vectorSiteList = new JTextArea("Digest to View");
+		vectorSiteList = new JTextArea("Run the digest to view cutting location information");
 		vectorSiteList.setEditable(true);
 		vectorSiteList.setMargin(new Insets(15, 15, 15, 15));
 		vectorSiteList.setFont(new Font("Lucida Sans Typewriter", Font.ITALIC | Font.BOLD, 12));
@@ -55,9 +58,11 @@ public class SiteListPane extends JSplitPane {
 		vectorSiteListPane = new JScrollPane(vectorSiteList,
 				ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		vectorSiteListPane.getVerticalScrollBar().setUnitIncrement(40);
 		vectorSiteListPanel.add(vectorSiteListPane);
 
 		setOrientation(JSplitPane.HORIZONTAL_SPLIT);
+		setContinuousLayout(true);
 		setLeftComponent(insertSiteListPanel);
 		setRightComponent(vectorSiteListPanel);
 
@@ -68,11 +73,8 @@ public class SiteListPane extends JSplitPane {
 		//		divider.setBorder(BorderFactory.createRaisedSoftBevelBorder());
 	}
 
-	static SiteListPane getSiteListPane() {
-		return siteListPane == null ? siteListPane = new SiteListPane(): siteListPane;
-	}
-
-	static void update() {
+	@SuppressWarnings("resource")
+	public static void update() {
 		// Clear
 		insertSiteList.setText("");
 		vectorSiteList.setText("");
@@ -165,5 +167,9 @@ public class SiteListPane extends JSplitPane {
 		}
 		vectorFormatter.close();
 		vectorSiteList.setCaretPosition(0); // Back to top when complete
+	}
+
+	static SiteListPane createSiteListPane() {
+		return siteListPane == null ? siteListPane = new SiteListPane(): siteListPane;
 	}
 }

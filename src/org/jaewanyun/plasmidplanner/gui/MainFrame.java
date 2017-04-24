@@ -20,20 +20,22 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.ToolTipManager;
 
+import org.jaewanyun.plasmidplanner.gui.blast.TabbedBlastPane;
+import org.jaewanyun.plasmidplanner.gui.cut.CuttingDrawPanel;
+import org.jaewanyun.plasmidplanner.gui.plan.PlanningPanel;
+
 public class MainFrame extends JFrame implements ComponentListener {
 
 	private static final long serialVersionUID = 1L;
 	private MainTabbedPane tabbedPane;
 	private ProgressPanel progressPanel;
-	private int width;
-	private int height;
 	private static MainFrame mainFrame;
 
 	static final int MIN_WIDTH = 1200;
 	static final int MIN_HEIGHT = 800;
 
 	public static MainFrame createGUI() {
-		return mainFrame == null ? mainFrame = new MainFrame("Plasmid Planner") : mainFrame;
+		return mainFrame == null ? mainFrame = new MainFrame("Expression Vector Guide") : mainFrame;
 	}
 
 	private MainFrame(String title) {
@@ -47,19 +49,9 @@ public class MainFrame extends JFrame implements ComponentListener {
 		progressPanel = ProgressPanel.getProgressPanel();
 		add(progressPanel, BorderLayout.SOUTH);
 
-		// Console for debugging
-		//		add(ConsolePane.getConsole(), BorderLayout.EAST);
-
-		if(this.isAncestorOf(ConsolePane.getConsole())) {
-			Dimension dim = new Dimension(MIN_WIDTH + ConsolePane.WIDTH, MIN_HEIGHT);
-			setMinimumSize(dim);
-			setPreferredSize(dim);
-		}
-		else {
-			Dimension dim = new Dimension(MIN_WIDTH, MIN_HEIGHT);
-			setMinimumSize(dim);
-			setPreferredSize(dim);
-		}
+		Dimension dim = new Dimension(MIN_WIDTH, MIN_HEIGHT);
+		setMinimumSize(dim);
+		setPreferredSize(dim);
 
 		// Icon of the program
 		try (InputStream stream = getClass().getResourceAsStream("/images/dna.jpeg");) {
@@ -74,11 +66,11 @@ public class MainFrame extends JFrame implements ComponentListener {
 
 		addComponentListener(this);
 		initializeMenuBar();
-		centerWindow();
 		setResizable(true);
 		pack();
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
+		centerWindow();
 
 		ToolTipManager.sharedInstance().setInitialDelay(0);
 	}
@@ -99,7 +91,7 @@ public class MainFrame extends JFrame implements ComponentListener {
 		// Drop-down item
 		JMenuItem fMenuItem_1 = new JMenuItem("Exit", null);
 		fMenuItem_1.setMnemonic(KeyEvent.VK_E);
-		fMenuItem_1.setToolTipText("Close application");
+		//		fMenuItem_1.setToolTipText("Close application");
 		fMenuItem_1.addActionListener((ActionEvent event) -> {
 			System.exit(0);
 		});
@@ -107,10 +99,10 @@ public class MainFrame extends JFrame implements ComponentListener {
 
 		// Tab "About"
 		JMenu about = new JMenu("About");
-		// Drop-down item
+		// Drop-down item 1
 		JMenuItem aMenuItem_1 = new JMenuItem("Developers", null);
 		aMenuItem_1.setMnemonic(KeyEvent.VK_D);
-		aMenuItem_1.setToolTipText("Show developers");
+		//		aMenuItem_1.setToolTipText("Show developers");
 		aMenuItem_1.addActionListener((ActionEvent event) -> {
 			JOptionPane.showMessageDialog(
 					null,
@@ -118,27 +110,32 @@ public class MainFrame extends JFrame implements ComponentListener {
 							+ "M.D. Ph.D.\n"
 							+ "Infectious Diseases and Microbiology\n"
 							+ "University of Pittsburgh\n\n"
+
+							+ "Vernon Twombly\n"
+							+ "Ph.D.\n"
+							+ "Biological Sciences\n"
+							+ "University of Pittsburgh\n\n"
+
 							+ "Jaewan Yun\n"
 							+ "Undergraduate Student\n"
-							+ "Molecular Biology\n"
+							+ "Biological Sciences\n"
 							+ "University of Pittsburgh\n\n",
 							"Developers",
 							-1);
 		});
-		about.add(aMenuItem_1);
+		// Drop-down item 2
+		JMenuItem aMenuItem_2 = new JMenuItem("About EVG", null);
+		aMenuItem_2.setMnemonic(KeyEvent.VK_A);
 
-		// Tab "Help"
-		JMenu help = new JMenu("Help");
-		// Drop-down item
-		JMenuItem hMenuItem_1 = new JMenuItem("License", null);
-		hMenuItem_1.setMnemonic(KeyEvent.VK_L);
-		hMenuItem_1.setToolTipText("Show MIT license");
-		hMenuItem_1.addActionListener((ActionEvent event) -> {
+		// Drop-down item 3
+		JMenuItem aMenuItem_3 = new JMenuItem("License", null);
+		aMenuItem_3.setMnemonic(KeyEvent.VK_L);
+		aMenuItem_3.addActionListener((ActionEvent event) -> {
 			JOptionPane.showMessageDialog(
 					null,
 					"The MIT License (MIT)\n\n"
-							+ "Copyright (c) 2016 Jaewan Yun <jay50@pitt.edu>\n"
-							+ "Copyright (c) 2016 Narasimhan Jayanth Venkatachari <njv12@pitt.edu>\n\n"
+							+ "Copyright (c) 2016 Jaewan Yun\n\n"
+
 							+ "Permission is hereby granted, free of charge, to any person obtaining a copy\n"
 							+ "of this software and associated documentation files (the \"Software\"), to deal\n"
 							+ "in the Software without restriction, including without limitation the rights\n"
@@ -157,7 +154,42 @@ public class MainFrame extends JFrame implements ComponentListener {
 							"LICENSE",
 							-1);
 		});
+		about.add(aMenuItem_1);
+		about.add(aMenuItem_2);
+		about.add(aMenuItem_3);
+
+
+		// Tab "Help"
+		JMenu help = new JMenu("Help");
+		// Drop-down item 1
+		JMenuItem hMenuItem_1 = new JMenuItem("Enumerate Constructs", null);
+		hMenuItem_1.setMnemonic(KeyEvent.VK_L);
+		hMenuItem_1.addActionListener((ActionEvent event) -> {
+			JOptionPane.showMessageDialog(
+					null,
+					"For guided construction of expression vectors, import the sequence of DNA containing region\n"
+							+ "of insert and region for insertion to each text pane located at 'Enter DNA Sequence' tab. Click\n"
+							+ "on the 'digest' button located on 'Restriction Digest' tab after both sequences have been\n"
+							+ "imported. Possible digests can be viewed on this tab after all enzymatic cuts have been found.\n"
+							+ "Moving the cursor on top of enzymes on the graphical pane brings up information about\n"
+							+ "the enzyme which acts upon this section and enzymes that cut the other DNA which produces\n"
+							+ "compatible overhangs. More information on digests can be found, in writing, on tabs #1-3\n"
+							+ "(Enzymes, Sites, Overhangs).\n"
+							+ "\n"
+							+ "Click on 'Automated Cloning' tab.\n"
+							+ "Fill out field 1 with the starting index of insertion sequence.\n"
+							+ "Fill out field 2 with the last index of insertion sequence.\n"
+							+ "Fill out field 3 with the starting index of a region safe to insert the insertion sequence.\n"
+							+ "Fill out field 4 with the last index of the expendable region.\n"
+							+ "Click on 'Plan Expression Vector' button to open a list of potential digests for target\n"
+							+ "construction.\n"
+							+ "If the solutions are unsatisfactory, try reducing the length of sequence considered.\n"
+							+ "Click on the number representing final vector length for virtual digest.",
+							"Help",
+							-1);
+		});
 		help.add(hMenuItem_1);
+
 
 		// Add to menu bar
 		menubar.add(file);
@@ -176,11 +208,9 @@ public class MainFrame extends JFrame implements ComponentListener {
 
 	@Override
 	public void componentResized(ComponentEvent arg0) {
-		this.width = this.getWidth();
-		this.height = this.getHeight();
-		//		ConsolePane.println("MainFrame width changed to :\t" + width);
-		//		ConsolePane.println("MainFrame height changed to :\t" + height);
 		CuttingDrawPanel.resized();
+		PlanningPanel.resized();
+		TabbedBlastPane.resized();
 	}
 
 	@Override

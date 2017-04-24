@@ -1,4 +1,4 @@
-package org.jaewanyun.plasmidplanner.gui;
+package org.jaewanyun.plasmidplanner.gui.input;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -51,8 +51,7 @@ final class FileIO {
 
 	static void save(String fileName, String content) {
 		boolean noSuchFile = false;
-		try {
-			FileReader check = new FileReader(fileName);
+		try (FileReader check = new FileReader(fileName)) {
 			check.close();
 		} catch (Exception e) {
 			// No such file. Safe to save as fileName
@@ -67,8 +66,7 @@ final class FileIO {
 			if(selected != JOptionPane.YES_OPTION)
 				return;
 		}
-		try {
-			PrintWriter writer = new PrintWriter(fileName, "UTF-8");
+		try (PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
 			writer.println(content);
 			writer.close();
 		} catch (Exception e) {

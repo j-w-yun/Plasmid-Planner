@@ -7,12 +7,12 @@ import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
-final class GUIsettings {
+public final class GUIsettings {
 
 	// All JTabbedPanes
-	static final Color tabBackgroundColor = new Color(70, 95, 95);
-	static final Color tabTextColor = Color.WHITE;
-	static final BasicTabbedPaneUI getUI() {
+	public static final Color tabBackgroundColor = new Color(70, 95, 95);
+	public static final Color tabTextColor = Color.WHITE;
+	public static final BasicTabbedPaneUI getUI() {
 		return (new BasicTabbedPaneUI() {
 			@Override
 			protected void installDefaults() {
@@ -27,29 +27,29 @@ final class GUIsettings {
 	}
 
 	// ProgressPanel
-	static final Color progressBarColor = new Color(100, 128, 128);
-	static final Color progressTextColor = Color.WHITE;
+	public static final Color progressBarColor = new Color(100, 128, 128);
+	public static final Color progressTextColor = Color.WHITE;
 
 	// Menu
-	static final Color menubarBackgroundColor = progressBarColor;
-	static final Color menubarForegroundColor = Color.LIGHT_GRAY;
+	public static final Color menubarBackgroundColor = progressBarColor;
+	public static final Color menubarForegroundColor = Color.LIGHT_GRAY;
 
 	// All JButtons
-	static final Color buttonColor = new Color(250, 250, 220);
-	static final Color buttonTextColor = progressBarColor;
-	static final Color buttonHighlightColor = progressBarColor;
-	static final Color buttonHightlightTextColor = Color.WHITE;
+	public static final Color buttonColor = new Color(250, 250, 220);
+	public static final Color buttonTextColor = progressBarColor;
+	public static final Color buttonHighlightColor = new Color(100, 128, 128);
+	public static final Color buttonHighlightTextColor = Color.WHITE;
 
 	// All JTextAreas
-	static final Color textAreaColor = new Color(250, 250, 220);
+	public static final Color textAreaColor = new Color(250, 250, 220);
 
 	// CuttingDrawPanel
-	static final Color drawPanelColor = new Color(250, 250, 220);
-	static final Color enzymeCutDrawLineColor = progressBarColor;
-	static final Color enzymeCutDrawHighlightLineColor = Color.RED;
-	//	static final Color enzymeCutDrawTextColor = new Color(160, 82, 45);
+	public static final Color drawPanelColor = new Color(250, 250, 220);
+	public static final Color enzymeCutDrawLineColor = progressBarColor;
+	public static final Color enzymeCutDrawHighlightLineColor = Color.RED;
+	//	public static final Color enzymeCutDrawTextColor = new Color(160, 82, 45);
 
-	static final Border border = BorderFactory.createBevelBorder(
+	public static final Border border = BorderFactory.createBevelBorder(
 			EtchedBorder.RAISED, Color.GRAY
 			, Color.DARK_GRAY);
 

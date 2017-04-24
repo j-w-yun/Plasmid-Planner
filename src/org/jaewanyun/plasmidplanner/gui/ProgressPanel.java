@@ -17,39 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 
-/* Format of SwingWorker that calls ProgressPanel
-
-SwingWorker<Void, Integer> worker = new SwingWorker<Void, Integer>() {
-	Integer id = ProgressPanel.createTask("Formatting Sequence", this);
-
-	@Override
-	protected Void doInBackground(){
-		int total = 12345;
-		int progress = 0;
-		publish(progress++ * 100 / total);
-
-		return null;
-	}
-
-	@Override
-	protected void process(List<Integer> progress) {
-		if(isCancelled())
-			return;
-		if(ProgressPanel.isDescriptionSet())
-			ProgressPanel.update(progress.get(progress.size() - 1));
-		else
-			ProgressPanel.update(progress.get(progress.size() - 1), "Task Name");
-	}
-
-	@Override
-	public void done() {
-		ProgressPanel.clear();
-	}
-}
-worker.execute();
-
- */
-final class ProgressPanel extends JPanel implements ActionListener {
+public final class ProgressPanel extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private static int maxQueueSize = 100;
@@ -59,6 +27,7 @@ final class ProgressPanel extends JPanel implements ActionListener {
 	private static HashMap<Integer, JLabel> identificationAndLabel;
 	private static HashMap<Integer, Integer> identificationAndProgress;
 	private static HashMap<Integer, String> identificationAndDescription;
+	@SuppressWarnings("rawtypes")
 	private static HashMap<Integer, SwingWorker> identificationAndSwingWorker;
 	private static HashSet<Integer> identifications;
 	private static ProgressPanel progressPanel;
@@ -90,11 +59,7 @@ final class ProgressPanel extends JPanel implements ActionListener {
 		return progressPanel == null ? progressPanel = new ProgressPanel(): progressPanel;
 	}
 
-	static synchronized int createTask(String description, int max, SwingWorker worker) {
-		// TODO: null ptr
-		//		if(identifications.size() >= maxQueueSize)
-		//			throw new IllegalStateException();
-
+	public static synchronized int createTask(String description, int max, @SuppressWarnings("rawtypes") SwingWorker worker) {
 		Integer id = getUniqueID();
 
 		JPanel panel = new JPanel((new FlowLayout(FlowLayout.LEADING)));
@@ -147,7 +112,7 @@ final class ProgressPanel extends JPanel implements ActionListener {
 		return potentialID;
 	}
 
-	static synchronized boolean taskAlreadyCreated(Integer key) {
+	public static synchronized boolean taskAlreadyCreated(Integer key) {
 		return identifications.contains(key);
 	}
 
@@ -164,32 +129,41 @@ final class ProgressPanel extends JPanel implements ActionListener {
 	//		identificationAndProgress.put(key, progress);
 	//	}
 
-	static synchronized void increment(int id, int amount) {
+	public static void increment(int id, int amount) {
+		JProgressBar bar = null;
+		Integer progress;
 		Integer key = id;
 
-		if(!identifications.contains(id))
-			return;
+		synchronized(ProgressPanel.class) {
 
-		Integer progress = identificationAndProgress.get(key);
-		JProgressBar bar = identificationAndProgressBar.get(key);
-		progress += amount;
+			if(!identifications.contains(id))
+				return;
+
+			progress = identificationAndProgress.get(key);
+			bar = identificationAndProgressBar.get(key);
+			progress += amount;
+		}
 		bar.setValue(progress);
 		identificationAndProgress.put(key, progress);
 	}
 
-	static synchronized void setProgress(int id, int progress) {
+	public static void setProgress(int id, int progress) {
+		JProgressBar bar = null;
 		Integer key = id;
 
-		if(!identifications.contains(id))
-			return;
+		synchronized(ProgressPanel.class) {
 
-		identificationAndProgress.put(id, new Integer(progress));
-		JProgressBar bar = identificationAndProgressBar.get(key);
+			if(!identifications.contains(id))
+				return;
+
+			identificationAndProgress.put(id, new Integer(progress));
+			bar = identificationAndProgressBar.get(key);
+		}
 		bar.setValue(progress);
 	}
 
-	static synchronized void setDescription(int id, String progressDescription) {
-		Integer key = id;
+	public static synchronized void setDescription(int id, String progressDescription) {
+		//		Integer key = id;
 
 		if(!identifications.contains(id))
 			return;
@@ -197,10 +171,11 @@ final class ProgressPanel extends JPanel implements ActionListener {
 		identificationAndDescription.put(id, progressDescription);
 	}
 
-	static synchronized void clear(Integer id) {
+	public static synchronized void clear(Integer id) {
 		if(!identifications.contains(id))
 			return;
 
+		@SuppressWarnings("rawtypes")
 		SwingWorker worker = identificationAndSwingWorker.get(id);
 		worker.cancel(true);
 		JPanel panel = identificationAndPanel.get(id);
@@ -237,6 +212,7 @@ final class ProgressPanel extends JPanel implements ActionListener {
 		if(!identifications.contains(id))
 			return;
 
+		@SuppressWarnings("rawtypes")
 		SwingWorker worker = identificationAndSwingWorker.get(id);
 		worker.cancel(true);
 		JPanel panel = identificationAndPanel.get(id);

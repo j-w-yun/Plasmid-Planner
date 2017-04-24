@@ -1,15 +1,8 @@
 # Plasmid Planner
 <br>
-List of NEB enzymes from New England Biolabs <https://www.neb.com/>
+List of NEB enzymes retrieved from New England Biolabs <https://www.neb.com/>
 
 <hr>
-
-# Full implementations
-      All features available in open source version
-      +
-      Fully automated plasmid planning - enumerate all possible solutions for cloning
-Contact jay50@pitt.edu for details.
-
 <hr>
 
 # Snapshots
@@ -35,12 +28,12 @@ Contact jay50@pitt.edu for details.
 <b>Enumeration of all possible expression vector construction schemes. Automatically find the most optimal constructs.</b>
 <br>
 
-      Narasimhan Jayanth Venkatachari
-      M.D. Ph.D.
-      Infectious Diseases and Microbiology
-      University of Pittsburgh
-      
-      Jaewan Yun
-      Undergraduate Student
-      Molecular Biology, Chemistry, Computer Science
-      University of Pittsburgh
+Narasimhan Jayanth Venkatachari
+M.D. Ph.D.
+Infectious Diseases and Microbiology
+University of Pittsburgh
+
+Jaewan Yun
+Undergraduate Student
+Molecular Biology, Chemistry, Computer Science
+University of Pittsburgh

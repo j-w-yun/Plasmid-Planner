@@ -25,33 +25,33 @@ public class Overhang implements Comparable<Overhang> {
 			this.blunt = true;
 	}
 
-	String getOverhang() {
-		return overhang;
+	public String getOverhang() {
+		return this.overhang;
 	}
 
 	/*
 	 * Returns true if overhang is 5'
 	 */
 	public boolean isFivePrime() {
-		if(blunt)
+		if(this.blunt)
 			return false;
-		return !overhangOnOriginal;
+		return !this.overhangOnOriginal;
 	}
 
 	/*
 	 * Returns true if overhang is 3'
 	 */
 	public boolean isThreePrime() {
-		if(blunt)
+		if(this.blunt)
 			return false;
-		return overhangOnOriginal;
+		return this.overhangOnOriginal;
 	}
 
 	/*
 	 * Returns true if blunt
 	 */
 	public boolean isBlunt() {
-		return blunt;
+		return this.blunt;
 	}
 
 	/*
@@ -81,9 +81,9 @@ public class Overhang implements Comparable<Overhang> {
 	public String toString() {
 		String toReturn = null;
 		if(isFivePrime())
-			toReturn = "(5') " + overhang;
+			toReturn = "(5') " + this.overhang;
 		else if(isThreePrime())
-			toReturn = "(3') " + overhang;
+			toReturn = "(3') " + this.overhang;
 		else if(isBlunt())
 			toReturn = "Blunt";
 		return toReturn;
@@ -115,12 +115,12 @@ public class Overhang implements Comparable<Overhang> {
 
 	@Override
 	public int hashCode() {
-		if(hashCode == 0) { // Lazy initialization
+		if(this.hashCode == 0) { // Lazy initialization
 			int result = 17; // Arbitrary non-zero number
-			result = 37 * result + (overhangOnOriginal ? 0 : 1); // Multiply by prime
-			result = 37 * result + overhang.hashCode(); // Start and end addition order matters, therefore good hash
-			hashCode = result;
+			result = 37 * result + (this.overhangOnOriginal ? 0 : 1); // Multiply by prime
+			result = 37 * result + this.overhang.hashCode(); // Start and end addition order matters, therefore good hash
+			this.hashCode = result;
 		}
-		return hashCode;
+		return this.hashCode;
 	}
 }

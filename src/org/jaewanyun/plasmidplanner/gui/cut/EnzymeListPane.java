@@ -1,4 +1,4 @@
-package org.jaewanyun.plasmidplanner.gui;
+package org.jaewanyun.plasmidplanner.gui.cut;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -18,9 +18,11 @@ import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 
 import org.jaewanyun.plasmidplanner.Planner;
+import org.jaewanyun.plasmidplanner.gui.GUIsettings;
 
-class EnzymeListPane extends JSplitPane {
+public class EnzymeListPane extends JSplitPane {
 
+	private static final long serialVersionUID = 1L;
 	private static JTextArea insertEnzymeList;
 	private static JTextArea vectorEnzymeList;
 	private static JScrollPane insertEnzymeListPane;
@@ -34,7 +36,7 @@ class EnzymeListPane extends JSplitPane {
 		insertEnzymeListPanel = new JPanel(new BorderLayout());
 		insertEnzymeListPanel.setBorder(BorderFactory.createEmptyBorder());
 
-		insertEnzymeList = new JTextArea("Digest to View");
+		insertEnzymeList = new JTextArea("Run the digest to view enzyme information");
 		insertEnzymeList.setEditable(true);
 		insertEnzymeList.setMargin(new Insets(15, 15, 15, 15));
 		insertEnzymeList.setFont(new Font("Lucida Sans Typewriter", Font.ITALIC | Font.BOLD, 12));
@@ -47,7 +49,7 @@ class EnzymeListPane extends JSplitPane {
 		vectorEnzymeListPanel = new JPanel(new BorderLayout());
 		vectorEnzymeListPanel.setBorder(BorderFactory.createEmptyBorder());
 
-		vectorEnzymeList = new JTextArea("Digest to View");
+		vectorEnzymeList = new JTextArea("Run the digest to view enzyme information");
 		vectorEnzymeList.setEditable(true);
 		vectorEnzymeList.setMargin(new Insets(15, 15, 15, 15));
 		vectorEnzymeList.setFont(new Font("Lucida Sans Typewriter", Font.ITALIC | Font.BOLD, 12));
@@ -55,24 +57,20 @@ class EnzymeListPane extends JSplitPane {
 		vectorEnzymeListPane = new JScrollPane(vectorEnzymeList,
 				ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		vectorEnzymeListPane.getVerticalScrollBar().setUnitIncrement(40);
 		vectorEnzymeListPanel.add(vectorEnzymeListPane);
 
 		setOrientation(JSplitPane.HORIZONTAL_SPLIT);
+		setContinuousLayout(true);
 		setLeftComponent(insertEnzymeListPanel);
 		setRightComponent(vectorEnzymeListPanel);
 
 		setBorder(BorderFactory.createEmptyBorder());
 		setResizeWeight(0.5);
-		//		BasicSplitPaneDivider divider = (BasicSplitPaneDivider) getComponent(2);
-		//		divider.setDividerSize(5);
-		//		divider.setBorder(BorderFactory.createRaisedSoftBevelBorder());
 	}
 
-	static EnzymeListPane getEnzymeListPane() {
-		return enzymeListPane == null ? enzymeListPane = new EnzymeListPane(): enzymeListPane;
-	}
-
-	static void update() {
+	@SuppressWarnings("resource")
+	public static void update() {
 		// Clear
 		insertEnzymeList.setText("");
 		vectorEnzymeList.setText("");
@@ -164,5 +162,9 @@ class EnzymeListPane extends JSplitPane {
 		}
 		vectorFormatter.close();
 		vectorEnzymeList.setCaretPosition(0); // Back to top when complete
+	}
+
+	static EnzymeListPane createEnzymeListPane() {
+		return enzymeListPane == null ? enzymeListPane = new EnzymeListPane(): enzymeListPane;
 	}
 }

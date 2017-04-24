@@ -1,126 +1,113 @@
 package org.jaewanyun.plasmidplanner;
 
-class Solution {
+public class Solution {
 
-	private Enzyme insertEnzyme1; // Enzyme which cuts the left side of the insert
-	private int insertEnzyme1Location;
-	private Enzyme insertEnzyme2; // Enzyme which cuts the right side of the insert
-	private int insertEnzyme2Location;
-	private Enzyme vectorEnzyme1; // Enzyme which is compatible with insertEnzyme1
-	private int vectorEnzyme1Location;
-	private Enzyme vectorEnzyme2; // Enzyme which is comparible with insertEnzyme2
-	private int vectorEnzyme2Location;
-	private int preference; // Higher the more preferable solution
+	private String insertLeftEnzyme;
+	private String vectorLeftEnzyme;
+	private String insertRightEnzyme;
+	private String vectorRightEnzyme;
+	private int insertLeftLocation;
+	private int vectorLeftLocation;
+	private int insertRightLocation;
+	private int vectorRightLocation;
+	private Overhang insertLeftOverhang;
+	private Overhang vectorLeftOverhang;
+	private Overhang insertRightOverhang;
+	private Overhang vectorRightOverhang;
+	private int finalSize;
 
-	Solution(Enzyme insertEnzyme1, int insertEnzyme1Location,
-			Enzyme insertEnzyme2, int insertEnzyme2Location,
-			Enzyme vectorEnzyme1, int vectorEnzyme1Location,
-			Enzyme vectorEnzyme2, int vectorEnzyme2Location) {
-		this.insertEnzyme1 = insertEnzyme1;
-		this.insertEnzyme1Location = insertEnzyme1Location;
-		this.insertEnzyme2 = insertEnzyme2;
-		this.insertEnzyme2Location = insertEnzyme2Location;
-		this.vectorEnzyme1 = vectorEnzyme1;
-		this.vectorEnzyme1Location = vectorEnzyme1Location;
-		this.vectorEnzyme2 = vectorEnzyme2;
-		this.vectorEnzyme2Location = vectorEnzyme2Location;
-	}
+	Solution(String ile, String vle, String ire, String vre, int ill, int vll, int irl, int vrl, Overhang ilo, Overhang vlo, Overhang iro, Overhang vro) {
+		this.insertLeftEnzyme = ile;
+		this.vectorLeftEnzyme = vle;
+		this.insertRightEnzyme = ire;
+		this.vectorRightEnzyme = vre;
+		this.insertLeftLocation = ill;
+		this.vectorLeftLocation = vll;
+		this.insertRightLocation = irl;
+		this.vectorRightLocation = vrl;
+		this.insertLeftOverhang = ilo;
+		this.vectorLeftOverhang = vlo;
+		this.insertRightOverhang = iro;
+		this.vectorRightOverhang = vro;
 
-	/*
-	 * With an element that will be used for sorting
-	 */
-	Solution(Enzyme insertEnzyme1, int insertEnzyme1Location,
-			Enzyme insertEnzyme2, int insertEnzyme2Location,
-			Enzyme vectorEnzyme1, int vectorEnzyme1Location,
-			Enzyme vectorEnzyme2, int vectorEnzyme2Location,
-			int preference) {
-		this(insertEnzyme1, insertEnzyme1Location,
-				insertEnzyme2, insertEnzyme2Location,
-				vectorEnzyme1, vectorEnzyme1Location,
-				vectorEnzyme2, vectorEnzyme2Location);
-		this.preference = preference;
-	}
+		int insertFragmentSize;
+		if(ill < irl) {
+			insertFragmentSize = irl - ill + 1;
+		} else {
+			insertFragmentSize = Planner.getInsert().getLength() - (ill - irl);
+		}
 
-	Solution() {
-		this(null, 0, null, 0, null, 0, null, 0);
-	}
+		int vectorFragmentSize;
+		if(vll > vrl) {
+			vectorFragmentSize = vll - vrl + 1;
+		} else {
+			vectorFragmentSize = Planner.getVector().getLength() - (vrl - vll);
+		}
 
-	boolean isFullSolution() {
-		return (insertEnzyme1 != null && insertEnzyme2 != null && vectorEnzyme1 != null && vectorEnzyme2 != null);
+		finalSize = insertFragmentSize + vectorFragmentSize;
 	}
 
-	void clear() {
-		this.insertEnzyme1 = null;
-		this.insertEnzyme1Location = 0;
-		this.insertEnzyme2 = null;
-		this.insertEnzyme2Location = 0;
-		this.vectorEnzyme1 = null;
-		this.vectorEnzyme1Location = 0;
-		this.vectorEnzyme2 = null;
-		this.vectorEnzyme2Location = 0;
-		this.preference = 0;
+	public boolean conflicts(Solution other) {
+		if(this.insertLeftEnzyme.equals(other.insertLeftEnzyme) && this.insertLeftLocation != other.insertLeftLocation)
+			return true;
+		if(this.vectorLeftEnzyme.equals(other.vectorLeftEnzyme) && this.vectorLeftLocation != other.vectorLeftLocation)
+			return true;
+		if(this.insertRightEnzyme.equals(other.insertRightEnzyme) && this.insertRightLocation != other.insertRightLocation)
+			return true;
+		if(this.vectorRightEnzyme.equals(other.vectorRightEnzyme) && this.vectorRightLocation != other.vectorRightLocation)
+			return true;
+		return false;
 	}
 
-	Enzyme getInsertEnzyme1() {
-		return insertEnzyme1;
-	}
-	void setInsertEnzyme1(Enzyme e) {
-		this.insertEnzyme1 = e;
+	public String getInsertLeftEnzyme() {
+		return insertLeftEnzyme;
 	}
 
-	int getInsertEnzyme1Location() {
-		return insertEnzyme1Location;
-	}
-	void setInsertEnzyme1Location(int loc) {
-		this.insertEnzyme1Location = loc;
+	public String getVectorLeftEnzyme() {
+		return vectorLeftEnzyme;
 	}
 
-	Enzyme getInsertEnzyme2() {
-		return insertEnzyme2;
-	}
-	void setInsertEnzyme2(Enzyme e) {
-		this.insertEnzyme2 = e;
+	public String getInsertRightEnzyme() {
+		return insertRightEnzyme;
 	}
 
-	int getInsertEnzyme2Location() {
-		return insertEnzyme2Location;
-	}
-	void setInsertEnzyme2Location(int loc) {
-		this.insertEnzyme2Location = loc;
+	public String getVectorRightEnzyme() {
+		return vectorRightEnzyme;
 	}
 
-	Enzyme getVectorEnzyme1() {
-		return vectorEnzyme1;
-	}
-	void setVectorEnzyme1(Enzyme e) {
-		this.vectorEnzyme1 = e;
+	public int getInsertLeftLocation() {
+		return insertLeftLocation;
 	}
 
-	int getVectorEnzyme1Location() {
-		return vectorEnzyme1Location;
-	}
-	void setVectorEnzyme1Location(int loc) {
-		this.vectorEnzyme1Location = loc;
+	public int getVectorLeftLocation() {
+		return vectorLeftLocation;
 	}
 
-	Enzyme getVectorEnzyme2() {
-		return vectorEnzyme2;
-	}
-	void setVectorEnzyme2(Enzyme e) {
-		this.vectorEnzyme2 = e;
+	public int getInsertRightLocation() {
+		return insertRightLocation;
 	}
 
-	int getVectorEnzyme2Location() {
-		return vectorEnzyme2Location;
-	}
-	void setVectorEnzyme2Location(int loc) {
-		this.vectorEnzyme2Location = loc;
+	public int getVectorRightLocation() {
+		return vectorRightLocation;
 	}
 
-	int getPreference() {
-		return preference;
+	public Overhang getInsertLeftOverhang() {
+		return insertLeftOverhang;
 	}
-	void setPreference(int preference) {
-		this.preference = preference;
+
+	public Overhang getVectorLeftOverhang() {
+		return vectorLeftOverhang;
+	}
+
+	public Overhang getInsertRightOverhang() {
+		return insertRightOverhang;
+	}
+
+	public Overhang getVectorRightOverhang() {
+		return vectorRightOverhang;
+	}
+
+	public int getFinalSize() {
+		return finalSize;
 	}
 }

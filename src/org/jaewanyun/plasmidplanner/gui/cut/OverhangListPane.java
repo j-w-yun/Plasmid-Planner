@@ -1,4 +1,4 @@
-package org.jaewanyun.plasmidplanner.gui;
+package org.jaewanyun.plasmidplanner.gui.cut;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -19,9 +19,11 @@ import javax.swing.ScrollPaneConstants;
 
 import org.jaewanyun.plasmidplanner.Overhang;
 import org.jaewanyun.plasmidplanner.Planner;
+import org.jaewanyun.plasmidplanner.gui.GUIsettings;
 
 public class OverhangListPane extends JSplitPane {
 
+	private static final long serialVersionUID = 1L;
 	private static JTextArea insertOverhangList;
 	private static JTextArea vectorOverhangList;
 	private static JScrollPane insertOverhangListPane;
@@ -35,7 +37,7 @@ public class OverhangListPane extends JSplitPane {
 		insertOverhangListPanel = new JPanel(new BorderLayout());
 		insertOverhangListPanel.setBorder(BorderFactory.createEmptyBorder());
 
-		insertOverhangList = new JTextArea("Digest to View");
+		insertOverhangList = new JTextArea("Run the digest to view overhang information");
 		insertOverhangList.setEditable(true);
 		insertOverhangList.setMargin(new Insets(15, 15, 15, 15));
 		insertOverhangList.setFont(new Font("Lucida Sans Typewriter", Font.ITALIC | Font.BOLD, 12));
@@ -48,7 +50,7 @@ public class OverhangListPane extends JSplitPane {
 		vectorOverhangListPanel = new JPanel(new BorderLayout());
 		vectorOverhangListPanel.setBorder(BorderFactory.createEmptyBorder());
 
-		vectorOverhangList = new JTextArea("Digest to View");
+		vectorOverhangList = new JTextArea("Run the digest to view overhang information");
 		vectorOverhangList.setEditable(true);
 		vectorOverhangList.setMargin(new Insets(15, 15, 15, 15));
 		vectorOverhangList.setFont(new Font("Lucida Sans Typewriter", Font.ITALIC | Font.BOLD, 12));
@@ -56,9 +58,11 @@ public class OverhangListPane extends JSplitPane {
 		vectorOverhangListPane = new JScrollPane(vectorOverhangList,
 				ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		vectorOverhangListPane.getVerticalScrollBar().setUnitIncrement(40);
 		vectorOverhangListPanel.add(vectorOverhangListPane);
 
 		setOrientation(JSplitPane.HORIZONTAL_SPLIT);
+		setContinuousLayout(true);
 		setLeftComponent(insertOverhangListPanel);
 		setRightComponent(vectorOverhangListPanel);
 
@@ -69,11 +73,8 @@ public class OverhangListPane extends JSplitPane {
 		//		divider.setBorder(BorderFactory.createRaisedSoftBevelBorder());
 	}
 
-	static OverhangListPane getOverhangListPane() {
-		return overhangListPane == null ? overhangListPane = new OverhangListPane(): overhangListPane;
-	}
-
-	static void update() {
+	@SuppressWarnings("resource")
+	public static void update() {
 		// Clear
 		insertOverhangList.setText("");
 		vectorOverhangList.setText("");
@@ -166,5 +167,9 @@ public class OverhangListPane extends JSplitPane {
 		}
 		vectorFormatter.close();
 		vectorOverhangList.setCaretPosition(0); // Back to top when complete
+	}
+
+	static OverhangListPane createOverhangListPane() {
+		return overhangListPane == null ? overhangListPane = new OverhangListPane(): overhangListPane;
 	}
 }

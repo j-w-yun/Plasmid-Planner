@@ -1,17 +1,23 @@
-package org.jaewanyun.plasmidplanner.gui;
+package org.jaewanyun.plasmidplanner.gui.cut;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,37 +29,84 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingWorker;
 
 import org.jaewanyun.plasmidplanner.Enzyme;
 import org.jaewanyun.plasmidplanner.Overhang;
 import org.jaewanyun.plasmidplanner.Planner;
 import org.jaewanyun.plasmidplanner.Plasmid;
+import org.jaewanyun.plasmidplanner.gui.GUIsettings;
 
-class CuttingDrawPanel extends JPanel {
+
+// TODO: Clean up
+public class CuttingDrawPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private static CuttingDrawPanel insertCuttingDrawPanel;
-	private static CuttingDrawPanel vectorCuttingDrawPanel;
 	private DrawPanel drawPanel;
 	private JPanel optionPanel;
+	private JPanel enzymeSidePanel;
+	private JScrollPane enzymeScrollPane;
 	private JRadioButton oneCutter;
 	private JRadioButton twoCutter;
 	private JRadioButton threeCutter;
 	private JRadioButton fourCutter;
 	private JRadioButton fiveCutter;
+	private ArrayList<JButton> selectedEnzymes;
+	private ArrayList<JButton> unselectedEnzymes;
+	private JLabel selectedEnzymesLabel;
+	private JLabel unselectedEnzymesLabel;
+	private HashMap<Integer, HashSet<String>> locationAndEnzyme;
 	private JTextField from;
 	private JTextField to;
 	private JButton show;
+	private static CuttingDrawPanel insertCuttingDrawPanel;
+	private static CuttingDrawPanel vectorCuttingDrawPanel;
 
 	private CuttingDrawPanel() {
 		super(new BorderLayout());
 
+		// Panel that draws and adds all enzyme information and enzyme buttons
 		drawPanel = new DrawPanel();
 		drawPanel.setFocusable(true);
 
+		// Panel with radio buttons and range of enzymes show components
 		optionPanel = new JPanel(new FlowLayout());
+
+		// Panel with a list of enzymes for custom view
+		enzymeSidePanel = new JPanel(new GridLayout(0, 1));
+
+		// Search bar
+		JTextField searchBar = new JTextField(10);
+		searchBar.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				String searchThis = searchBar.getText();
+				for(int j = 0; j < unselectedEnzymes.size(); j++)
+					unselectedEnzymes.get(j).setBackground(GUIsettings.buttonColor);
+				for(int j = 0; j < unselectedEnzymes.size(); j++) {
+					if(unselectedEnzymes.get(j).getText().toLowerCase().indexOf(searchThis.toLowerCase()) == 0 && searchThis.length() > 0) {
+						unselectedEnzymes.get(j).setBackground(Color.YELLOW);
+						try {
+							unselectedEnzymes.get(j - 3).scrollRectToVisible(enzymeScrollPane.getBounds());
+						} catch (Exception ex) {}
+					}
+				}
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {}
+
+			@Override
+			public void keyTyped(KeyEvent e) {}
+		});
+		optionPanel.add(new JLabel("Search enzyme"));
+		optionPanel.add(searchBar);
+		JLabel space1 = new JLabel("                     ");
+		optionPanel.add(space1);
 
 		// Radio buttons
 		oneCutter = new JRadioButton("1 Site");
@@ -84,21 +137,20 @@ class CuttingDrawPanel extends JPanel {
 		optionPanel.add(fiveCutter);
 
 		// Spacer
-		JLabel space1 = new JLabel("                ");
-		optionPanel.add(space1);
+		JLabel space2 = new JLabel("                     ");
+		optionPanel.add(space2);
 
 		// All enzymes that do not cut between button
 		JLabel string1 = new JLabel("<html>Show all enzymes that<br>do not cut between</html>");
 		string1.setFont(new Font(string1.getFont().getName(), Font.ITALIC, 10));
-		from = new JTextField(4);
-		from.setFont(new Font(string1.getFont().getName(), Font.PLAIN, 10));
+		from = new JTextField(7);
+		from.setFont(new Font(from.getFont().getName(), Font.PLAIN, 10));
 		JLabel string2 = new JLabel(" and ");
 		string2.setFont(new Font(string2.getFont().getName(), Font.ITALIC, 10));
-		to = new JTextField(4);
-		to.setFont(new Font(string1.getFont().getName(), Font.PLAIN, 10));
+		to = new JTextField(7);
+		to.setFont(new Font(to.getFont().getName(), Font.PLAIN, 10));
 		show = new JButton("Show");
 		show.setFont(new Font(show.getFont().getName(), Font.BOLD, 10));
-		show.setBackground(GUIsettings.buttonColor);
 		show.setMargin(new Insets(0, 0, 0, 0));
 		show.addActionListener(drawPanel);
 		optionPanel.add(string1);
@@ -107,13 +159,115 @@ class CuttingDrawPanel extends JPanel {
 		optionPanel.add(to);
 		optionPanel.add(show);
 
+		// Enzyme list
+		selectedEnzymesLabel = new JLabel("  Selected Enzymes ");
+		selectedEnzymesLabel.setFont(new Font("Lucida Sans Typewriter", Font.BOLD, 10));
+		selectedEnzymesLabel.setBackground(GUIsettings.buttonHighlightColor);
+		selectedEnzymesLabel.setForeground(GUIsettings.buttonHighlightTextColor);
+		selectedEnzymesLabel.setOpaque(true);
+
+		unselectedEnzymesLabel = new JLabel(" Unselected Enzymes ");
+		unselectedEnzymesLabel.setFont(new Font("Lucida Sans Typewriter", Font.BOLD, 10));
+		unselectedEnzymesLabel.setBackground(GUIsettings.buttonColor);
+		unselectedEnzymesLabel.setForeground(GUIsettings.buttonTextColor);
+		unselectedEnzymesLabel.setOpaque(true);
+
+		Enzyme[] enzymes = Enzyme.importFromFile(getClass().getResourceAsStream("/enzymes/enzymes.txt"));
+
+		selectedEnzymes = new ArrayList<>();
+		unselectedEnzymes = new ArrayList<>();
+
+		locationAndEnzyme = new HashMap<>();
+		for(int j = 0; j < enzymes.length; j++) {
+			JButton enzymeSidePanelButton = new JButton(enzymes[j].getEnzymeName());
+			enzymeSidePanelButton.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					drawPanel.highlightFrom = 0;
+					drawPanel.highlightTo = 0;
+					drawPanel.analyzedButtons.clear();
+					drawPanel.analyzedToDisplay.clear();
+					drawPanel.removeAll();
+					drawPanel.buttons.clear();
+					locationAndEnzyme.clear();
+
+					if(unselectedEnzymes.contains(enzymeSidePanelButton)) {
+						// Move to selected before removing from unselected
+						selectedEnzymes.add(enzymeSidePanelButton);
+						unselectedEnzymes.remove(enzymeSidePanelButton);
+						enzymeSidePanelButton.setBackground(GUIsettings.buttonHighlightColor);
+						enzymeSidePanelButton.setForeground(GUIsettings.buttonHighlightTextColor);
+					} else {
+						unselectedEnzymes.add(enzymeSidePanelButton);
+						unselectedEnzymes.sort(new Comparator<JButton>() {
+							@Override
+							public int compare(JButton one, JButton two) {
+								return one.getText().compareTo(two.getText());
+							}
+						});
+						selectedEnzymes.remove(enzymeSidePanelButton);
+						enzymeSidePanelButton.setBackground(GUIsettings.buttonColor);
+						enzymeSidePanelButton.setForeground(GUIsettings.buttonTextColor);
+					}
+
+					// Add to enzymeSidePanelButton list panel after clearing it
+					enzymeSidePanel.removeAll();
+					enzymeSidePanel.add(selectedEnzymesLabel);
+					for(int k = 0; k < selectedEnzymes.size(); k++) {
+						enzymeSidePanel.add(selectedEnzymes.get(k));
+						try {
+							locationAndEnzyme.putAll(Planner.getList(drawPanel.thisPlasmid, selectedEnzymes.get(k).getText()));
+						} catch (Exception ex) {}
+					}
+					enzymeSidePanel.add(unselectedEnzymesLabel);
+					for(int k = 0; k < unselectedEnzymes.size(); k++) {
+						enzymeSidePanel.add(unselectedEnzymes.get(k));
+					}
+
+					enzymeSidePanel.revalidate();
+					enzymeSidePanel.repaint();
+
+					drawPanel.displayThis = locationAndEnzyme;
+
+					drawPanel.revalidate();
+					drawPanel.repaint();
+				}
+			});
+			enzymeSidePanelButton.setMargin(new Insets(0, 0, 0, 0));
+			enzymeSidePanelButton.setFont(new Font("Lucida Sans Typewriter", Font.ITALIC, 10));
+			enzymeSidePanelButton.setFocusPainted(false);
+			enzymeSidePanelButton.setBackground(GUIsettings.buttonColor);
+			enzymeSidePanelButton.setForeground(GUIsettings.buttonTextColor);
+			unselectedEnzymes.add(enzymeSidePanelButton);
+		}
+
+		// Add to enzyme list panel after clearing it
+		enzymeSidePanel.removeAll();
+		enzymeSidePanel.add(selectedEnzymesLabel);
+		for(int k = 0; k < selectedEnzymes.size(); k++) {
+			unselectedEnzymes.add(selectedEnzymes.get(k));
+		}
+		enzymeSidePanel.add(unselectedEnzymesLabel);
+		for(int k = 0; k < unselectedEnzymes.size(); k++) {
+			enzymeSidePanel.add(unselectedEnzymes.get(k));
+		}
+		enzymeScrollPane = new JScrollPane(enzymeSidePanel,
+				ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		enzymeScrollPane.getVerticalScrollBar().setUnitIncrement(40);
 
 		add(optionPanel, BorderLayout.NORTH);
 		add(drawPanel, BorderLayout.CENTER);
+		add(enzymeScrollPane, BorderLayout.WEST);
 
 		revalidate();
 		repaint();
 
+		// UI
+		enzymeScrollPane.setBorder(GUIsettings.border);
+		enzymeSidePanel.setBorder(BorderFactory.createEmptyBorder());
+		enzymeSidePanel.setBackground(GUIsettings.buttonHighlightColor);
+		show.setBackground(GUIsettings.buttonColor);
 		drawPanel.setBackground(GUIsettings.drawPanelColor);
 		optionPanel.setBackground(GUIsettings.drawPanelColor);
 		oneCutter.setBackground(GUIsettings.drawPanelColor);
@@ -125,22 +279,6 @@ class CuttingDrawPanel extends JPanel {
 		setBorder(BorderFactory.createEmptyBorder());
 	}
 
-	void unselectRadioButtons() {
-		oneCutter.setSelected(false);
-		twoCutter.setSelected(false);
-		threeCutter.setSelected(false);
-		fourCutter.setSelected(false);
-		fiveCutter.setSelected(false);
-	}
-
-	static CuttingDrawPanel getInsertDrawPanel() {
-		return insertCuttingDrawPanel == null ? insertCuttingDrawPanel = new CuttingDrawPanel(): insertCuttingDrawPanel;
-	}
-
-	static CuttingDrawPanel getVectorDrawPanel() {
-		return vectorCuttingDrawPanel == null ? vectorCuttingDrawPanel = new CuttingDrawPanel(): vectorCuttingDrawPanel;
-	}
-
 	static HashMap<Integer, HashSet<String>> getInsertList(int cuts) {
 		HashMap<String, HashSet<Integer>> enzymeAndLocation = Planner.getInsert().getEnzymeAndLocation();
 		Set<String> enzymeSet = enzymeAndLocation.keySet();
@@ -150,64 +288,6 @@ class CuttingDrawPanel extends JPanel {
 
 		for(int j = 0; j < enzymes.length; j++) {
 			if(enzymeAndLocation.get(enzymes[j]).size() == cuts) {
-
-				Set<Integer> locationSet = enzymeAndLocation.get(enzymes[j]);
-				Integer[] locations = locationSet.toArray(new Integer[locationSet.size()]);
-
-				for(int k = 0; k < locations.length; k++) {
-					if(toReturn.get(locations[k]) == null) {
-						HashSet<String> enzymeSet2 = new HashSet<>();
-						enzymeSet2.add(enzymes[j]);
-						toReturn.put(locations[k], enzymeSet2);
-					}
-					else {
-						HashSet<String> enzymeSet2 = toReturn.get(locations[k]);
-						enzymeSet2.add(enzymes[j]);
-					}
-				}
-			}
-		}
-		return toReturn;
-	}
-
-	static HashMap<Integer, HashSet<String>> getInsertList(String find) {
-		HashMap<String, HashSet<Integer>> enzymeAndLocation = Planner.getInsert().getEnzymeAndLocation();
-		Set<String> enzymeSet = enzymeAndLocation.keySet();
-		String[] enzymes = enzymeSet.toArray(new String[enzymeSet.size()]);
-
-		HashMap<Integer, HashSet<String>> toReturn = new HashMap<>();
-
-		for(int j = 0; j < enzymes.length; j++) {
-			if(enzymes[j].equals(find) && enzymeSet.contains(find)) {
-
-				Set<Integer> locationSet = enzymeAndLocation.get(enzymes[j]);
-				Integer[] locations = locationSet.toArray(new Integer[locationSet.size()]);
-
-				for(int k = 0; k < locations.length; k++) {
-					if(toReturn.get(locations[k]) == null) {
-						HashSet<String> enzymeSet2 = new HashSet<>();
-						enzymeSet2.add(enzymes[j]);
-						toReturn.put(locations[k], enzymeSet2);
-					}
-					else {
-						HashSet<String> enzymeSet2 = toReturn.get(locations[k]);
-						enzymeSet2.add(enzymes[j]);
-					}
-				}
-			}
-		}
-		return toReturn;
-	}
-
-	static HashMap<Integer, HashSet<String>> getVectorList(String find) {
-		HashMap<String, HashSet<Integer>> enzymeAndLocation = Planner.getVector().getEnzymeAndLocation();
-		Set<String> enzymeSet = enzymeAndLocation.keySet();
-		String[] enzymes = enzymeSet.toArray(new String[enzymeSet.size()]);
-
-		HashMap<Integer, HashSet<String>> toReturn = new HashMap<>();
-
-		for(int j = 0; j < enzymes.length; j++) {
-			if(enzymes[j].equals(find) && enzymeSet.contains(find)) {
 
 				Set<Integer> locationSet = enzymeAndLocation.get(enzymes[j]);
 				Integer[] locations = locationSet.toArray(new Integer[locationSet.size()]);
@@ -281,12 +361,12 @@ class CuttingDrawPanel extends JPanel {
 		return Planner.getVector().getEnzymeAndLocationAndOverhang();
 	}
 
-	static void resized() {
+	public static void resized() {
 		insertCuttingDrawPanel.drawPanel.resized();
 		vectorCuttingDrawPanel.drawPanel.resized();
 	}
 
-	static void update() {
+	public static void update() {
 		insertCuttingDrawPanel.drawPanel.setLength(Planner.getInsert().getSequence().length());
 		vectorCuttingDrawPanel.drawPanel.setLength(Planner.getVector().getSequence().length());
 
@@ -324,11 +404,84 @@ class CuttingDrawPanel extends JPanel {
 		insertCuttingDrawPanel.drawPanel.repaint();
 	}
 
-	static void update(String find, boolean insert) {
-		if(insert)
-			insertCuttingDrawPanel.drawPanel.displayThis = getInsertList(find);
-		else
-			vectorCuttingDrawPanel.drawPanel.displayThis = getVectorList(find);
+	private static void clearEnzymeSidePanel() {
+		// Clear insert enzyme side panel
+		insertCuttingDrawPanel.enzymeSidePanel.removeAll();
+		insertCuttingDrawPanel.enzymeSidePanel.add(insertCuttingDrawPanel.selectedEnzymesLabel);
+		for(int j = 0; j < insertCuttingDrawPanel.selectedEnzymes.size(); j++) {
+			insertCuttingDrawPanel.unselectedEnzymes.add(insertCuttingDrawPanel.selectedEnzymes.get(j));
+			insertCuttingDrawPanel.selectedEnzymes.get(j).setBackground(GUIsettings.buttonColor);
+			insertCuttingDrawPanel.selectedEnzymes.get(j).setForeground(GUIsettings.buttonTextColor);
+			insertCuttingDrawPanel.unselectedEnzymes.sort(new Comparator<JButton>() {
+				@Override
+				public int compare(JButton one, JButton two) {
+					return one.getText().compareTo(two.getText());
+				}
+			});
+		}
+		insertCuttingDrawPanel.enzymeSidePanel.add(insertCuttingDrawPanel.unselectedEnzymesLabel);
+		for(int j = 0; j < insertCuttingDrawPanel.unselectedEnzymes.size(); j++) {
+			insertCuttingDrawPanel.enzymeSidePanel.add(insertCuttingDrawPanel.unselectedEnzymes.get(j));
+		}
+		insertCuttingDrawPanel.selectedEnzymes.clear();
+		insertCuttingDrawPanel.enzymeSidePanel.revalidate();
+		insertCuttingDrawPanel.enzymeSidePanel.repaint();
+
+		// Clear vector enzyme side panel
+		vectorCuttingDrawPanel.enzymeSidePanel.removeAll();
+		vectorCuttingDrawPanel.enzymeSidePanel.add(vectorCuttingDrawPanel.selectedEnzymesLabel);
+		for(int j = 0; j < vectorCuttingDrawPanel.selectedEnzymes.size(); j++) {
+			vectorCuttingDrawPanel.unselectedEnzymes.add(vectorCuttingDrawPanel.selectedEnzymes.get(j));
+			vectorCuttingDrawPanel.selectedEnzymes.get(j).setBackground(GUIsettings.buttonColor);
+			vectorCuttingDrawPanel.selectedEnzymes.get(j).setForeground(GUIsettings.buttonTextColor);
+			vectorCuttingDrawPanel.unselectedEnzymes.sort(new Comparator<JButton>() {
+				@Override
+				public int compare(JButton one, JButton two) {
+					return one.getText().compareTo(two.getText());
+				}
+			});
+		}
+		vectorCuttingDrawPanel.enzymeSidePanel.add(vectorCuttingDrawPanel.unselectedEnzymesLabel);
+		for(int j = 0; j < vectorCuttingDrawPanel.unselectedEnzymes.size(); j++) {
+			vectorCuttingDrawPanel.enzymeSidePanel.add(vectorCuttingDrawPanel.unselectedEnzymes.get(j));
+		}
+		vectorCuttingDrawPanel.selectedEnzymes.clear();
+		vectorCuttingDrawPanel.enzymeSidePanel.revalidate();
+		vectorCuttingDrawPanel.enzymeSidePanel.repaint();
+	}
+
+	public static void addEnzymeToView(String ile, String vle, String ire, String vre, int ill, int vll, int irl, int vrl) {
+		clearEnzymeSidePanel();
+
+		/*
+		 * Add insert enzymes
+		 */
+		for(int j = 0; j < insertCuttingDrawPanel.unselectedEnzymes.size(); j++) {
+			if(insertCuttingDrawPanel.unselectedEnzymes.get(j).getText().equals(ile) || insertCuttingDrawPanel.unselectedEnzymes.get(j).getText().equals(ire)) {
+				for(ActionListener a: insertCuttingDrawPanel.unselectedEnzymes.get(j).getActionListeners()) {
+					a.actionPerformed(new ActionEvent(insertCuttingDrawPanel, ActionEvent.ACTION_PERFORMED, null));
+				}
+				j--;
+			}
+		}
+
+		/*
+		 * Add vector enzymes
+		 */
+		for(int j = 0; j < vectorCuttingDrawPanel.unselectedEnzymes.size(); j++) {
+			if(vectorCuttingDrawPanel.unselectedEnzymes.get(j).getText().equals(vle) || vectorCuttingDrawPanel.unselectedEnzymes.get(j).getText().equals(vre)) {
+				for(ActionListener a: vectorCuttingDrawPanel.unselectedEnzymes.get(j).getActionListeners()) {
+					a.actionPerformed(new ActionEvent(vectorCuttingDrawPanel, ActionEvent.ACTION_PERFORMED, null));
+				}
+				j--;
+			}
+		}
+
+		insertCuttingDrawPanel.drawPanel.highlightFrom = ill;
+		insertCuttingDrawPanel.drawPanel.highlightTo = irl;
+
+		vectorCuttingDrawPanel.drawPanel.highlightFrom = vrl;
+		vectorCuttingDrawPanel.drawPanel.highlightTo = vll;
 	}
 
 	private class DrawPanel extends JPanel implements ActionListener {
@@ -345,6 +498,8 @@ class CuttingDrawPanel extends JPanel {
 		private HashMap<Integer, HashSet<String>> displayThis;
 		private String enzymeDescription;
 		private String boldThisEnzyme;
+		private String drawOrig;
+		private String drawComp;
 		private ArrayList<JButton> buttons;
 		private Plasmid thisPlasmid;
 		private Plasmid otherPlasmid;
@@ -356,6 +511,8 @@ class CuttingDrawPanel extends JPanel {
 		DrawPanel() {
 			super(null);
 			sequenceLength = "0";
+			drawOrig = "";
+			drawComp = "";
 			buttons = new ArrayList<>();
 			enzymeDescription = "";
 			analyzedToDisplay = new ArrayList<>();
@@ -366,74 +523,15 @@ class CuttingDrawPanel extends JPanel {
 			sequenceLength = Integer.toString(length);
 		}
 
-		private HashMap<Integer, HashSet<String>> findValid(int start, int end) {
-			//			HashMap<Integer, HashSet<Overhang>> locationAndOverhang = thisPlasmid.getLocationAndOverhang();
-			HashMap<Integer, HashSet<String>> locationAndEnzymeValid = new HashMap<>();
-			HashMap<String, HashSet<Integer>> enzymeAndLocation = thisPlasmid.getEnzymeAndLocation();
-			Set<String> enzymeSet = enzymeAndLocation.keySet();
-			String[] enzymes = enzymeSet.toArray(new String[enzymeSet.size()]);
-			// Vector validity test
-			for(int j = 0; j < enzymes.length; j++) {
-				HashSet<Integer> locationSet = enzymeAndLocation.get(enzymes[j]);
-				int cursor = start;
-				boolean valid = true;
-				// Run through each location from that enzyme
-				while(cursor != end) {
-					if(cursor == thisPlasmid.getLength())
-						cursor = 0;
-					if(locationSet.contains(cursor)) {
-						valid = false;
-						break;
-					}
-					cursor++;
-				}
-				// If valid, enter into hashmap
-				if(valid) {
-					Integer[] locations = locationSet.toArray(new Integer[locationSet.size()]);
-					for(int k = 0; k < locations.length; k++) {
-						if(locationAndEnzymeValid.containsKey(locations[k])) {
-							Set<String> enzymeSetValid = locationAndEnzymeValid.get(locations[k]);
-							enzymeSetValid.add(enzymes[j]);
-						}
-						else {
-							HashSet<String> enzymeSetValid = new HashSet<>();
-							enzymeSetValid.add(enzymes[j]);
-							locationAndEnzymeValid.put(locations[k], enzymeSetValid);
-						}
-					}
-				}
-			}
-			return locationAndEnzymeValid;
-		}
-
 		void resized() {
 			// Width and height should be the same for both panels
 			width = getWidth();
 			height = getHeight();
 
 			buttons.clear();
+			analyzedButtons.clear();
+			analyzedToDisplay.clear();
 			drawPanel.removeAll();
-
-			/*
-			 * Add center bottom buttons
-			 */
-			int heightOffset2 = 10;
-			int widthOffset2 = 0;
-			for(int n = 0; n < analyzedButtons.size(); n++) {
-				analyzedButtons.get(n).setSize(50, 12);
-				analyzedButtons.get(n).setLocation(width / 3 + widthOffset2, height - 113 + heightOffset2);
-				analyzedButtons.get(n).setFont(new Font("Lucida Sans Typewriter", Font.PLAIN, 9));
-				analyzedButtons.get(n).setMargin(new Insets(0, 0, 0, 0));
-				analyzedButtons.get(n).setBackground(GUIsettings.buttonColor);
-				analyzedButtons.get(n).setForeground(GUIsettings.buttonTextColor);
-				analyzedButtons.get(n).setFocusPainted(false);
-				add(analyzedButtons.get(n));
-				heightOffset2 += 10;
-				if(heightOffset2 >= 80) {
-					heightOffset2 = 0;
-					widthOffset2 += 120;
-				}
-			}
 
 			revalidate();
 			repaint();
@@ -443,7 +541,24 @@ class CuttingDrawPanel extends JPanel {
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
 
+			/*
+			 * Anti-aliasing
+			 */
+			Graphics2D g2 = (Graphics2D)g;
+			RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+			rh.add(new RenderingHints(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON));
+			g2.setRenderingHints(rh);
+
 			g.setFont(new Font("Lucida Sans Typewriter", Font.BOLD, 10));
+
+			/*
+			 * Draw a horizontal line separating option panel to this panel
+			 */
+			g.setColor(Color.WHITE);
+			g.drawLine(0, 0, width, 0);
+			g.drawLine(0, 1, width, 1);
+			g.drawLine(0, 2, width, 2);
+			g.setColor(Color.BLACK); // Reset to default color
 
 			/*
 			 * Draw a line of plasmid
@@ -451,7 +566,7 @@ class CuttingDrawPanel extends JPanel {
 			int lineStart = 100;
 			int lineEnd = width - 100;
 			int lineTotal = lineEnd - lineStart;
-			int lineLocationHeight = height / 8;
+			int lineLocationHeight = height / 6;
 			g.drawLine(lineStart, lineLocationHeight, lineEnd, lineLocationHeight);
 
 			/*
@@ -464,7 +579,7 @@ class CuttingDrawPanel extends JPanel {
 			/*
 			 * Draw tick marks as a tip of location
 			 */
-			int numTickMarks = 10;
+			int numTickMarks = 9;
 			boolean alternate = false;
 			for(int j = 0; j < numTickMarks; j++) {
 				int location = (Integer.parseInt(sequenceLength) / (numTickMarks + 1)) * (j + 1);
@@ -488,8 +603,13 @@ class CuttingDrawPanel extends JPanel {
 			int relativeLocationStart = (int) (abstractLocationStart * lineTotal) + lineStart;
 			double abstractLocationEnd =  (double) highlightTo / Integer.parseInt(sequenceLength);
 			int relativeLocationEnd = (int) (abstractLocationEnd * lineTotal) + lineStart;
+
 			if(abstractLocationEnd > abstractLocationStart) {
 				g.setColor(GUIsettings.buttonHighlightColor);
+				// Draw oval
+				g.fillOval(relativeLocationStart - 4, lineLocationHeight - 4, 8, 8);
+				g.fillOval(relativeLocationEnd - 4, lineLocationHeight - 4, 8, 8);
+				// Draw lines
 				g.drawLine(relativeLocationStart, lineLocationHeight + 1, relativeLocationEnd, lineLocationHeight + 1);
 				g.drawLine(relativeLocationStart, lineLocationHeight + 0, relativeLocationEnd, lineLocationHeight + 0);
 				g.drawLine(relativeLocationStart, lineLocationHeight - 1, relativeLocationEnd, lineLocationHeight - 1);
@@ -497,6 +617,10 @@ class CuttingDrawPanel extends JPanel {
 			}
 			else if(abstractLocationEnd < abstractLocationStart) {
 				g.setColor(GUIsettings.buttonHighlightColor);
+				// Draw oval
+				g.fillOval(relativeLocationStart - 4, lineLocationHeight - 4, 8, 8);
+				g.fillOval(relativeLocationEnd - 4, lineLocationHeight - 4, 8, 8);
+				// Draw lines
 				g.drawLine(relativeLocationStart, lineLocationHeight + 1, lineTotal + lineStart, lineLocationHeight + 1);
 				g.drawLine(relativeLocationStart, lineLocationHeight + 0, lineTotal + lineStart, lineLocationHeight + 0);
 				g.drawLine(relativeLocationStart, lineLocationHeight - 1, lineTotal + lineStart, lineLocationHeight - 1);
@@ -509,28 +633,28 @@ class CuttingDrawPanel extends JPanel {
 			/*
 			 * Draw legend
 			 */
-			g.setColor(Color.BLUE); // 5 prime
-			g.fillOval(width - 134, height - 64, 8, 8);
-			g.drawLine(width - 130, height - 61, width - 110, height - 61);
-			g.drawLine(width - 130, height - 60, width - 110, height - 60);
+			//			g.setColor(Color.BLUE); // 5 prime
+			//			g.fillOval(width - 134, height - 64, 8, 8);
+			//			g.drawLine(width - 130, height - 61, width - 110, height - 61);
+			//			g.drawLine(width - 130, height - 60, width - 110, height - 60);
 			//			g.drawLine(width - 130, height - 59, width - 110, height - 59);
-			g.setColor(Color.BLACK);
-			g.drawString("= 5' Overhang", width - 100, height - 57);
-			g.setColor(Color.GREEN); // 3 prime
-			g.fillOval(width - 134, height - 52, 8, 8);
-			g.drawLine(width - 130, height - 49, width - 110, height - 49);
-			g.drawLine(width - 130, height - 48, width - 110, height - 48);
+			//			g.setColor(Color.BLACK);
+			//			g.drawString("= 5' Overhang", width - 100, height - 57);
+			//			g.setColor(Color.GREEN); // 3 prime
+			//			g.fillOval(width - 134, height - 52, 8, 8);
+			//			g.drawLine(width - 130, height - 49, width - 110, height - 49);
+			//			g.drawLine(width - 130, height - 48, width - 110, height - 48);
 			//			g.drawLine(width - 130, height - 47, width - 110, height - 47);
-			g.setColor(Color.BLACK);
-			g.drawString("= 3' Overhang", width - 100, height - 45);
-			g.setColor(Color.RED); // Blunt
-			g.fillOval(width - 134, height - 40, 8, 8);
-			g.drawLine(width - 130, height - 37, width - 110, height - 37);
-			g.drawLine(width - 130, height - 36, width - 110, height - 36);
+			//			g.setColor(Color.BLACK);
+			//			g.drawString("= 3' Overhang", width - 100, height - 45);
+			//			g.setColor(Color.RED); // Blunt
+			//			g.fillOval(width - 134, height - 40, 8, 8);
+			//			g.drawLine(width - 130, height - 37, width - 110, height - 37);
+			//			g.drawLine(width - 130, height - 36, width - 110, height - 36);
 			//			g.drawLine(width - 130, height - 35, width - 110, height - 35);
-			g.setColor(Color.BLACK);
-			g.drawString("= Blunt Overhang", width - 100, height - 33);
-			g.setColor(Color.BLACK);
+			//			g.setColor(Color.BLACK);
+			//			g.drawString("= Blunt Overhang", width - 100, height - 33);
+			//			g.setColor(Color.BLACK);
 
 			/*
 			 * Main display of enzymes and their information
@@ -538,16 +662,6 @@ class CuttingDrawPanel extends JPanel {
 			if(displayThis != null) {
 
 				Set<Integer> locationSet = displayThis.keySet();
-
-				//				if(locationSet.size() > 50) {
-				//					oneCutter.setSelected(false);
-				//					twoCutter.setSelected(false);
-				//					threeCutter.setSelected(false);
-				//					fourCutter.setSelected(false);
-				//					fiveCutter.setSelected(false);
-				//					displayThis = null;
-				//					return;
-				//				}
 
 				Integer[] locations = locationSet.toArray(new Integer[locationSet.size()]);
 				Arrays.sort(locations);
@@ -625,6 +739,7 @@ class CuttingDrawPanel extends JPanel {
 						toolTipString += "</html>";
 
 
+						// TODO: Fix runtime err at line 756
 						/*
 						 * All line / oval drawing calls
 						 */
@@ -634,70 +749,187 @@ class CuttingDrawPanel extends JPanel {
 						g.drawLine(relativeLocation, lineLocationHeight + 10 + heightOffset, relativeLocation + 2, lineLocationHeight + 10 + heightOffset); // Horizontal Line
 						// Check if the line(s) from this enzyme need to be bold due to user hovering on the button
 						if(enzymes[k].equals(boldThisEnzyme)) {
+
+							/*
+							 * Bold the line originating from every site of this enzyme
+							 */
 							if(currentOverhang.isFivePrime())
 								g.setColor(Color.BLUE);
 							else if(currentOverhang.isThreePrime())
 								g.setColor(Color.GREEN);
 							else if(currentOverhang.isBlunt())
 								g.setColor(Color.RED);
+							g.drawLine(relativeLocation - 1, lineLocationHeight - 0, relativeLocation - 1, lineLocationHeight + 10 + heightOffset); // Vertical Line
+							g.drawLine(relativeLocation, lineLocationHeight + 9 + heightOffset, relativeLocation + 2, lineLocationHeight + 9 + heightOffset); // Horizontal Line
 							g.drawLine(relativeLocation, lineLocationHeight - 0, relativeLocation, lineLocationHeight + 10 + heightOffset); // Vertical Line
 							g.drawLine(relativeLocation, lineLocationHeight + 10 + heightOffset, relativeLocation + 2, lineLocationHeight + 10 + heightOffset); // Horizontal Line
 							g.drawLine(relativeLocation + 1, lineLocationHeight - 0, relativeLocation + 1, lineLocationHeight + 10 + heightOffset); // Vertical Line
 							g.drawLine(relativeLocation, lineLocationHeight + 11 + heightOffset, relativeLocation + 2, lineLocationHeight + 11 + heightOffset); // Horizontal Line
 							g.fillOval(relativeLocation - 4, lineLocationHeight - 4, 8, 8); // Circle indicating the cut site on the DNA
-							g.setColor(GUIsettings.enzymeCutDrawLineColor);
+
+							/*
+							 * Display the sequence near the selected enzyme's cutting site up at the top
+							 */
+							g.setColor(GUIsettings.buttonHighlightColor);
+							g.drawString(drawOrig, width / 2 - g.getFontMetrics().stringWidth(drawOrig) / 2, height / 8 - 40);
+							g.drawString(drawComp, width / 2 - g.getFontMetrics().stringWidth(drawComp) / 2, height / 8 - 20);
+							g.setColor(Color.BLACK); // Reset to default color
 						}
 
 
 						/*
 						 * Enzyme buttons
 						 */
-						buttons.clear();
 						JButton enzymeButton = new JButton(enzymes[k]);
 						enzymeButton.addActionListener(this);
 						enzymeButton.setToolTipText(toolTipString);
 						enzymeButton.setFocusPainted(false);
 						enzymeButton.addMouseListener(new MouseAdapter() {
+
+							@Override
+							public void mouseExited(MouseEvent e) {
+								new SwingWorker<Void, Void>() {
+									@Override
+									protected Void doInBackground() throws Exception {
+										JButton exited = (JButton) e.getSource();
+
+										/*
+										 * Change button color
+										 */
+										for(int j = 0; j < buttons.size(); j++) {
+											if(buttons.get(j).getText().equals(exited.getText())) {
+												buttons.get(j).setBackground(GUIsettings.buttonColor);
+												buttons.get(j).setForeground(GUIsettings.buttonTextColor);
+											}
+										}
+
+										/*
+										 * Bold the line originating from every site of this enzyme
+										 */
+										boldThisEnzyme = null;
+
+										/*
+										 * Important
+										 */
+										revalidate();
+										repaint();
+
+										return null;
+									}
+								}.execute();
+							}
+
 							@Override
 							public void mouseEntered(MouseEvent e) {
 								new SwingWorker<Void, Void>() {
 									@Override
 									protected Void doInBackground() throws Exception {
 										JButton pressed = (JButton) e.getSource();
-										String pressedEnzyme = pressed.getText();
-										for(int j = 0; j < buttons.size(); j++) {
-											buttons.get(j).setBackground(GUIsettings.buttonColor);
-											buttons.get(j).setForeground(GUIsettings.buttonTextColor);
-											if(buttons.get(j).getText().equals(pressedEnzyme)) {
-												// Button colors
-												buttons.get(j).setBackground(GUIsettings.buttonHighlightColor);
-												buttons.get(j).setForeground(GUIsettings.buttonHightlightTextColor);
-											}
-										}
-										// Get data for bottom info display
+
+										/*
+										 * Get data for bottom info display
+										 */
 										Enzyme[] enzymes = Planner.getEnzymes();
 										for(int j = 0; j < enzymes.length; j++) {
-											if(enzymes[j].getEnzymeName().equals(pressedEnzyme)) {
+											if(enzymes[j].getEnzymeName().equals(pressed.getText())) {
 												enzymeDescription = enzymes[j].toString();
 											}
 										}
-										// Bold the line originating from every site of this enzyme
-										boldThisEnzyme = pressedEnzyme;
 
+										/*
+										 * Change button color
+										 */
+										for(int j = 0; j < buttons.size(); j++) {
+											if(buttons.get(j).getText().equals(pressed.getText())) {
+												buttons.get(j).setBackground(GUIsettings.buttonHighlightColor);
+												buttons.get(j).setForeground(GUIsettings.buttonHighlightTextColor);
+											}
+										}
+
+										/*
+										 * Bold the line originating from every site of this enzyme
+										 */
+										boldThisEnzyme = pressed.getText();
+
+										/*
+										 * Display the sequence which this enzyme cuts
+										 */
+										int drawSequenceLength = 30;
+										StringBuilder origSB = new StringBuilder();
+										StringBuilder compSB = new StringBuilder();
+										String thisSequence = thisPlasmid.getSequence();
+										// Get location by parsing tool tip text
+										int cursor = 24;
+										StringBuilder locationBuilder = new StringBuilder();
+										String parse = pressed.getToolTipText();
+										char readChar = parse.charAt(cursor);
+										while(readChar != '<') {
+											locationBuilder.append(readChar);
+											cursor++;
+											readChar = parse.charAt(cursor);
+										}
+										int parsedLocation = Integer.parseInt(locationBuilder.toString());
+										Overhang overhangAtSite = enzymeAndLocationAndOverhang.get(pressed.getText() + parsedLocation);
+										// Start appending what will be drawn
+										origSB.append("(5')     [...]     ");
+										compSB.append("(3')     [...]     ");
+										for(int n = (-drawSequenceLength / 2) + parsedLocation; n < drawSequenceLength / 2 + parsedLocation; n++) {
+											if(overhangAtSite.isFivePrime()) {
+												if(n == parsedLocation)
+													origSB.append("                    ");
+												if(n == parsedLocation + (overhangAtSite.getOverhang().length() + 0))
+													compSB.append("                    ");
+											}
+											else if(overhangAtSite.isThreePrime()) {
+												if(n == parsedLocation)
+													compSB.append("                    ");
+												if(n == parsedLocation + (overhangAtSite.getOverhang().length() + 0))
+													origSB.append("                    ");
+											}
+											else if(overhangAtSite.isBlunt()) {
+												if(n == parsedLocation) {
+													origSB.append("                    ");
+													compSB.append("                    ");
+												}
+											}
+											try { // Sequence may not have the index
+												origSB.append(thisSequence.charAt(n) + " ");
+												if(thisSequence.charAt(n) == 'c')
+													compSB.append("G ");
+												else if(thisSequence.charAt(n) == 'g')
+													compSB.append("C ");
+												else if(thisSequence.charAt(n) == 't')
+													compSB.append("A ");
+												else if(thisSequence.charAt(n) == 'a')
+													compSB.append("T ");
+											} catch (Exception e) {}
+
+										}
+										origSB.append("    [...]     (3')");
+										compSB.append("    [...]     (5')");
+										// Store into a wider scoped field
+										drawOrig = origSB.toString().toUpperCase();
+										drawComp = compSB.toString().toUpperCase();
+
+										/*
+										 * Important
+										 */
 										revalidate();
 										repaint();
+
 										return null;
 									}
 								}.execute();
 							}
 						});
-						enzymeButton.setSize(50, 14);
+						enzymeButton.setSize(55, 14);
 						enzymeButton.setLocation(relativeLocation + 4, lineLocationHeight + 3 + heightOffset);
 						enzymeButton.setFont(new Font("Lucida Sans Typewriter", Font.PLAIN, 9));
 						enzymeButton.setMargin(new Insets(0, 0, 0, 0));
+						enzymeButton.setFocusPainted(false);
+						// Button color
 						enzymeButton.setBackground(GUIsettings.buttonColor);
 						enzymeButton.setForeground(GUIsettings.buttonTextColor);
-						enzymeButton.setFocusPainted(false);
 						// Add buttons
 						boolean duplicateExists = false;
 						for(int n = 0; n < buttons.size(); n++) {
@@ -708,7 +940,7 @@ class CuttingDrawPanel extends JPanel {
 							add(enzymeButton);
 							buttons.add(enzymeButton);
 						}
-						// Overlap prevention
+						// Prevent button overlap
 						heightOffset += 12;
 
 
@@ -717,28 +949,28 @@ class CuttingDrawPanel extends JPanel {
 						 */
 						if(enzymeDescription.length() > 0) {
 							String[] enzymeData = enzymeDescription.split("\t");
-							g.setColor(Color.RED);
+							g.setColor(GUIsettings.buttonHighlightColor);
 							g.drawString(enzymeData[0], 5, height - 123); // Name
 							g.drawString(enzymeData[2], 5, height - 113); // Sequence
 							g.setColor(Color.BLACK);
 
 							if(enzymeData[4].contains("100%"))
-								g.setColor(Color.GREEN);
+								g.setColor(Color.RED);
 							g.drawString(enzymeData[4], 5, height - 103); // 1.1
 							g.setColor(Color.BLACK);
 
 							if(enzymeData[5].contains("100%"))
-								g.setColor(Color.GREEN);
+								g.setColor(Color.RED);
 							g.drawString(enzymeData[5], 5, height - 93); // 2.1
 							g.setColor(Color.BLACK);
 
 							if(enzymeData[6].contains("100%"))
-								g.setColor(Color.GREEN);
+								g.setColor(Color.RED);
 							g.drawString(enzymeData[6], 5, height - 83); // 3.1
 							g.setColor(Color.BLACK);
 
 							if(enzymeData[7].contains("100%"))
-								g.setColor(Color.GREEN);
+								g.setColor(Color.RED);
 							g.drawString(enzymeData[7], 5, height - 73); // CutSmart
 							g.setColor(Color.BLACK);
 
@@ -747,7 +979,7 @@ class CuttingDrawPanel extends JPanel {
 							//							g.drawString(enzymeData[10], 5, height - 10); // Diluent
 							g.drawString(enzymeData[3], 5, height - 43); // Supplied buffer
 
-							g.setColor(Color.RED);
+							g.setColor(GUIsettings.buttonHighlightColor);
 							g.drawString(enzymeData[1], 5, height - 33); // Description
 							g.setColor(Color.BLACK);
 						}
@@ -756,27 +988,27 @@ class CuttingDrawPanel extends JPanel {
 						 * Write text to bottom center plasmid comparison area
 						 */
 						if(analyzedToDisplay.size() > 0) {
-							g.setColor(Color.RED);
-							g.drawString("Compatible enzymes on other plasmid ", width / 4, height - 123);
+							g.setColor(GUIsettings.buttonHighlightColor);
+							g.drawString("Compatible enzymes on other plasmid ", width / 4 + 30, height - 123);
 						}
 						int heightOffset2 = 0;
 						int widthOffset2 = 0;
 						for(int n = 0; n < analyzedToDisplay.size(); n++) {
+							g.setColor(Color.RED);
 							String display = analyzedToDisplay.get(n);
 							if(n > 0)
-								g.setColor(Color.BLACK);
+								g.setColor(GUIsettings.buttonHighlightColor);
 							if(n == 0)
-								g.drawString(display, width / 4, height - 113 + heightOffset2);
+								g.drawString(display, width / 4 + 30, height - 113 + heightOffset2);
 							else
-								g.drawString(display, width / 4 + widthOffset2 + 50, height - 103 + heightOffset2);
+								g.drawString(display, width / 4 + 30 + widthOffset2 + 50, height - 103 + heightOffset2);
 							heightOffset2 += 10;
 							if(heightOffset2 >= 80) {
 								heightOffset2 = 0;
 								widthOffset2 += 100;
 							}
+							g.setColor(Color.BLACK); // Reset to default
 						}
-
-
 					}
 				}
 			}
@@ -784,6 +1016,31 @@ class CuttingDrawPanel extends JPanel {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+
+			// Clear enzyme side panel
+			if(e.getSource() == show || e.getSource() instanceof JRadioButton) {
+				enzymeSidePanel.removeAll();
+				enzymeSidePanel.add(selectedEnzymesLabel);
+				for(int j = 0; j < selectedEnzymes.size(); j++) {
+					unselectedEnzymes.add(selectedEnzymes.get(j));
+					selectedEnzymes.get(j).setBackground(GUIsettings.buttonColor);
+					selectedEnzymes.get(j).setForeground(GUIsettings.buttonTextColor);
+					unselectedEnzymes.sort(new Comparator<JButton>() {
+						@Override
+						public int compare(JButton one, JButton two) {
+							return one.getText().compareTo(two.getText());
+						}
+					});
+				}
+				enzymeSidePanel.add(unselectedEnzymesLabel);
+				for(int j = 0; j < unselectedEnzymes.size(); j++) {
+					enzymeSidePanel.add(unselectedEnzymes.get(j));
+				}
+				selectedEnzymes.clear();
+
+				enzymeSidePanel.revalidate();
+				enzymeSidePanel.repaint();
+			}
 
 			if(e.getSource() instanceof JRadioButton) {
 
@@ -815,8 +1072,6 @@ class CuttingDrawPanel extends JPanel {
 			}
 
 			if(e.getSource() == show) {
-				unselectRadioButtons();
-
 				int start = -1;
 				int end = -1;
 
@@ -834,26 +1089,25 @@ class CuttingDrawPanel extends JPanel {
 				}
 				try {
 					if(start >= 0 && end < thisPlasmid.getLength())  {
-						displayThis = findValid(start, end);
+						displayThis = Planner.findEnzymesNotCutting(thisPlasmid, start, end);
 
 						// Line highlight
 						highlightFrom = start;
 						highlightTo = end;
 					}
 				} catch (Exception ex) {
-					JOptionPane.showMessageDialog(
-							null,
-							"Error while trying to find enzymes.\n"
-									+ "Please check digest.",
-									"Invalid state",
-									0);
+					//					JOptionPane.showMessageDialog(
+					//							null,
+					//							"Error while trying to find enzymes.\n"
+					//									+ "Please check digest.",
+					//									"Invalid state",
+					//									0);
 					return;
 				}
 
 				buttons.clear();
 				analyzedToDisplay.clear();
 				drawPanel.removeAll();
-
 
 				revalidate();
 				repaint();
@@ -875,7 +1129,7 @@ class CuttingDrawPanel extends JPanel {
 				String enzymeName = ((JButton) e.getSource()).getText();
 				HashMap<String, Overhang> enzymeAndLocationAndOverhang = thisPlasmid.getEnzymeAndLocationAndOverhang();
 				Overhang overhang = enzymeAndLocationAndOverhang.get(enzymeName + sb.toString());
-				Overhang target = overhang.getComplement();
+				Overhang target = overhang;//.getComplement();
 
 				/*
 				 * Compare with other plasmid's overhangs and collect all those that are compatible
@@ -900,18 +1154,20 @@ class CuttingDrawPanel extends JPanel {
 				 */
 				analyzedToDisplay.clear();
 				analyzedButtons.clear();
+
 				if(compatibleEnzymeSet != null) {
 					analyzedToDisplay.add("For " + ((JButton) e.getSource()).getText());
 					HashMap<String, HashSet<Integer>> otherEnzymeAndLocation = otherPlasmid.getEnzymeAndLocation();
 					String[] compatibleEnzymes = compatibleEnzymeSet.toArray(new String[compatibleEnzymeSet.size()]);
 					Arrays.sort(compatibleEnzymes);
+
 					for(int j = 0; j < compatibleEnzymes.length; j++) {
-						//						analyzedToDisplay.add(compatibleEnzymes[j] + " : " + Integer.toString(otherEnzymeAndLocation.get(compatibleEnzymes[j]).size()));
 						analyzedToDisplay.add(" : " + Integer.toString(otherEnzymeAndLocation.get(compatibleEnzymes[j]).size()));
 						JButton button = new JButton(compatibleEnzymes[j]);
 						button.addActionListener(new ActionListener() {
 							@Override
-							public void actionPerformed(ActionEvent arg0) {
+							public void actionPerformed(ActionEvent e) {
+								// Retrieve the other panel
 								CuttingDrawPanel other = TabbedCuttingPane.getNotSelectedDrawPanel();
 
 								HashMap<Integer, HashSet<String>> selectedEnzyme = new HashMap<>();
@@ -924,14 +1180,39 @@ class CuttingDrawPanel extends JPanel {
 									selectedEnzyme.put(locations[j], temp);
 								}
 								other.drawPanel.displayThis = selectedEnzyme;
-								TabbedCuttingPane.setSelected(other);
+								TabbedCuttingPane.setSelectedDrawPanel(other);
+
 								other.drawPanel.removeAll();
+								other.drawPanel.buttons.clear();
+								other.drawPanel.analyzedButtons.clear();
 								other.drawPanel.analyzedToDisplay.clear();
 
 								other.drawPanel.highlightFrom = 0;
 								other.drawPanel.highlightTo = 0;
 
-								unselectRadioButtons();
+								/*
+								 * Clear other's enzyme side panel
+								 */
+								other.enzymeSidePanel.removeAll();
+								other.enzymeSidePanel.add(other.selectedEnzymesLabel);
+								for(int j = 0; j < other.selectedEnzymes.size(); j++) {
+									other.unselectedEnzymes.add(other.selectedEnzymes.get(j));
+									other.selectedEnzymes.get(j).setBackground(GUIsettings.buttonColor);
+									other.selectedEnzymes.get(j).setForeground(GUIsettings.buttonTextColor);
+									other.unselectedEnzymes.sort(new Comparator<JButton>() {
+										@Override
+										public int compare(JButton one, JButton two) {
+											return one.getText().compareTo(two.getText());
+										}
+									});
+								}
+								other.enzymeSidePanel.add(other.unselectedEnzymesLabel);
+								for(int j = 0; j < other.unselectedEnzymes.size(); j++) {
+									other.enzymeSidePanel.add(other.unselectedEnzymes.get(j));
+								}
+								other.selectedEnzymes.clear();
+								other.enzymeSidePanel.revalidate();
+								other.enzymeSidePanel.repaint();
 							}
 						});
 						analyzedButtons.add(button);
@@ -943,11 +1224,11 @@ class CuttingDrawPanel extends JPanel {
 						int widthOffset2 = 0;
 						for(int n = 0; n < analyzedButtons.size(); n++) {
 							analyzedButtons.get(n).setSize(55, 12);
-							analyzedButtons.get(n).setLocation(width / 4 + widthOffset2, height - 113 + heightOffset2);
-							analyzedButtons.get(n).setFont(new Font("Lucida Sans Typewriter", Font.PLAIN, 9));
+							analyzedButtons.get(n).setLocation(width / 4 + 30 + widthOffset2, height - 113 + heightOffset2);
+							analyzedButtons.get(n).setFont(new Font("Lucida Sans Typewriter", Font.PLAIN, 8));
 							analyzedButtons.get(n).setMargin(new Insets(0, 0, 0, 0));
 							analyzedButtons.get(n).setBackground(GUIsettings.buttonHighlightColor);
-							analyzedButtons.get(n).setForeground(GUIsettings.buttonHightlightTextColor);
+							analyzedButtons.get(n).setForeground(GUIsettings.buttonHighlightTextColor);
 							analyzedButtons.get(n).setFocusPainted(false);
 							add(analyzedButtons.get(n));
 							heightOffset2 += 10;
@@ -966,5 +1247,13 @@ class CuttingDrawPanel extends JPanel {
 			revalidate();
 			repaint();
 		}
+	}
+
+	static CuttingDrawPanel createInsertDrawPanel() {
+		return insertCuttingDrawPanel == null ? insertCuttingDrawPanel = new CuttingDrawPanel(): insertCuttingDrawPanel;
+	}
+
+	static CuttingDrawPanel createVectorDrawPanel() {
+		return vectorCuttingDrawPanel == null ? vectorCuttingDrawPanel = new CuttingDrawPanel(): vectorCuttingDrawPanel;
 	}
 }

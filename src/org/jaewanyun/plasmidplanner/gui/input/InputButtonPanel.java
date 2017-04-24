@@ -1,4 +1,4 @@
-package org.jaewanyun.plasmidplanner.gui;
+package org.jaewanyun.plasmidplanner.gui.input;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -9,12 +9,14 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-class InputButtonPanel extends JPanel implements ActionListener {
+import org.jaewanyun.plasmidplanner.gui.GUIsettings;
+
+public class InputButtonPanel extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private JButton loadPlasmidButton;
-	private JButton savePlasmidButton;
-	private JButton formatPlasmidButton;
+	private static JButton loadPlasmidButton;
+	private static JButton savePlasmidButton;
+	private static JButton formatPlasmidButton;
 	private static InputButtonPanel inputButtonPanel;
 
 	private InputButtonPanel() {
@@ -32,19 +34,18 @@ class InputButtonPanel extends JPanel implements ActionListener {
 		savePlasmidButton.addActionListener(this);
 		formatPlasmidButton.addActionListener(this);
 
+		// UI
+		loadPlasmidButton.setFocusPainted(false);
+		savePlasmidButton.setFocusPainted(false);
+		formatPlasmidButton.setFocusPainted(false);
 		loadPlasmidButton.setBackground(GUIsettings.buttonColor);
 		savePlasmidButton.setBackground(GUIsettings.buttonColor);
 		formatPlasmidButton.setBackground(GUIsettings.buttonColor);
-
 		loadPlasmidButton.setBorder(GUIsettings.border);
 		savePlasmidButton.setBorder(GUIsettings.border);
 		formatPlasmidButton.setBorder(GUIsettings.border);
 		setBorder(BorderFactory.createEmptyBorder());
 		setBackground(GUIsettings.tabBackgroundColor);
-	}
-
-	static InputButtonPanel getInputButtonPanel() {
-		return inputButtonPanel == null ? inputButtonPanel = new InputButtonPanel(): inputButtonPanel;
 	}
 
 	@Override
@@ -84,5 +85,9 @@ class InputButtonPanel extends JPanel implements ActionListener {
 		else if(e.getSource() == formatPlasmidButton) {
 			TabbedInputPane.formatCurrentContext(true);
 		}
+	}
+
+	public static InputButtonPanel createInputButtonPanel() {
+		return inputButtonPanel == null ? inputButtonPanel = new InputButtonPanel(): inputButtonPanel;
 	}
 }

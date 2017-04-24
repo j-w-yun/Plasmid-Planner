@@ -13,11 +13,7 @@ public class Plasmid {
 	private HashMap<String, HashSet<Integer>> enzymeAndLocation; // Maps enzyme name to number of cuts
 	private HashMap<Overhang, HashSet<String>> overhangAndEnzyme; // Maps overhang to enzyme name
 	private HashMap<String, HashSet<Overhang>> enzymeAndOverhang; // Maps enzyme name to overhang
-	/*
-	 * Maps enzyme and location appended to overhang
-	 * e.g. BamHI3092 to Overhang
-	 */
-	private HashMap<String, Overhang> enzymeAndLocationAndOverhang;
+	private HashMap<String, Overhang> enzymeAndLocationAndOverhang; // Maps enzyme and location appended to overhang (e.g. BamHI3092 to Overhang)
 
 	public Plasmid(String sequence) {
 		this.sequence = sequence;
@@ -33,15 +29,9 @@ public class Plasmid {
 	/*
 	 * Returns a stored overhang to reduce memory usage
 	 */
-	Overhang getOverhang(String sequence, boolean overhangOnOriginal) {
-		//		if(overhangBank.containsKey(sequence))
-		//			return overhangBank.get(sequence);
-		//		else {
-
+	static Overhang getOverhang(String sequence, boolean overhangOnOriginal) {
 		Overhang overhang = new Overhang(sequence, overhangOnOriginal);
 		return overhang;
-
-		//		}
 	}
 
 	/*

@@ -1,4 +1,4 @@
-package org.jaewanyun.plasmidplanner.gui;
+package org.jaewanyun.plasmidplanner.gui.cut;
 
 import java.awt.Component;
 import java.awt.Font;
@@ -6,16 +6,14 @@ import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.JTabbedPane;
 
-import org.jaewanyun.plasmidplanner.Plasmid;
+import org.jaewanyun.plasmidplanner.gui.GUIsettings;
 
 /*
  * All panels listed in here that are updated upon digest need to implements DigestListener
  */
-class TabbedCuttingPane extends JTabbedPane {
+public class TabbedCuttingPane extends JTabbedPane {
 
 	private static final long serialVersionUID = 1L;
-	private static Plasmid insert;
-	private static Plasmid vector;
 	private static CuttingDrawPanel insertCutPanel;
 	private static CuttingDrawPanel vectorCutPanel;
 	private static EnzymeListPane enzymeListPane;
@@ -26,19 +24,23 @@ class TabbedCuttingPane extends JTabbedPane {
 	private TabbedCuttingPane() {
 		super();
 
-		insertCutPanel = CuttingDrawPanel.getInsertDrawPanel();
-		vectorCutPanel = CuttingDrawPanel.getVectorDrawPanel();
+		// Visual panels
+		insertCutPanel = CuttingDrawPanel.createInsertDrawPanel();
+		vectorCutPanel = CuttingDrawPanel.createVectorDrawPanel();
 
-		enzymeListPane = EnzymeListPane.getEnzymeListPane();
-		siteListPanel = SiteListPane.getSiteListPane();
-		overhangListPanel = OverhangListPane.getOverhangListPane();
+		// Text panels
+		enzymeListPane = EnzymeListPane.createEnzymeListPane();
+		siteListPanel = SiteListPane.createSiteListPane();
+		overhangListPanel = OverhangListPane.createOverhangListPane();
 
+		// Add the panels to tabs
 		addTab("     Insert    ", null, insertCutPanel, "");
 		addTab("     Vector    ", null, vectorCutPanel, "");
 		addTab("    Enzymes    ", null, enzymeListPane, "");
 		addTab("     Sites     ", null, siteListPanel, "");
 		addTab("   Overhangs   ", null, overhangListPanel, "");
 
+		// UI
 		setBorder(BorderFactory.createEmptyBorder());
 		setBackground(GUIsettings.tabBackgroundColor);
 		setForeground(GUIsettings.tabTextColor);
@@ -52,11 +54,15 @@ class TabbedCuttingPane extends JTabbedPane {
 		return tabbedCuttingPane.getSelectedIndex() == 0 ? vectorCutPanel : insertCutPanel;
 	}
 
-	static void setSelected(Component component) {
+	static void setSelectedDrawPanel(Component component) {
 		tabbedCuttingPane.setSelectedComponent(component);
 	}
 
-	static TabbedCuttingPane getTabbedCuttingPane() {
+	public static void setSelectedInsertDrawPanel() {
+		tabbedCuttingPane.setSelectedComponent(insertCutPanel);
+	}
+
+	public static TabbedCuttingPane createTabbedCuttingPane() {
 		return tabbedCuttingPane == null ? tabbedCuttingPane = new TabbedCuttingPane(): tabbedCuttingPane;
 	}
 }
