@@ -21,12 +21,12 @@ List of NEB enzymes retrieved from New England Biolabs <https://www.neb.com/>
 <b>Enumeration of all possible expression vector construction schemes. Automatically find the most optimal constructs.</b>
 <br>
 
-  Narasimhan Jayanth Venkatachari
-  M.D. Ph.D.
-  Infectious Diseases and Microbiology
-  University of Pittsburgh
+    Narasimhan Jayanth Venkatachari
+    M.D. Ph.D.
+    Infectious Diseases and Microbiology
+    University of Pittsburgh
 
-  Jaewan Yun
-  Undergraduate Student
-  Molecular Biology, Chemistry, Computer Science
-  University of Pittsburgh
+    Jaewan Yun
+    Undergraduate Student
+    Molecular Biology, Chemistry, Computer Science
+    University of Pittsburgh
