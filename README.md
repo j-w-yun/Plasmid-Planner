@@ -1,8 +1,5 @@
-# Plasmid Planner
-<br>
 List of NEB enzymes retrieved from New England Biolabs <https://www.neb.com/>
 
-<hr>
 <hr>
 
 # Snapshots
